@@ -1,10 +1,9 @@
+import styled from '@emotion/styled';
 import React from 'react';
-import logo from './logo.svg';
 
 function App() {
   return (
-    
-    <div>App</div>
+    <div className="global"> App</div>
   );
 }
 
