@@ -5,4 +5,5 @@ import * as S from './index';
     return <S.Main>Cabecalho</S.Main>
 }
 
+
 export default Cabecalho;
