@@ -1,9 +1,11 @@
-import styled from '@emotion/styled';
-import React from 'react';
+import { Global } from "@emotion/react";
+import globalStyles from "./shared/global";
 
 function App() {
   return (
-    <div className="global"> App</div>
+    <>
+      <Global styles={globalStyles} /> App
+    </>
   );
 }
 

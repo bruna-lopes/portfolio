@@ -1,14 +1,15 @@
 import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { Gradients } from "./colors";
+import { Gradients, Colors } from "./colors";
 
-export const Global = css`
-  .global {
+const globalStyles = css`
+  * {
     margin: 0;
     padding: 0;
     font-family: "Poppins", sans-serif;
-    background-color: #000;
+    background: ${Gradients.blueToPinkTwo};
     width: 100vw;
     height: 100vh;
   }
 `;
+
+export default globalStyles;
