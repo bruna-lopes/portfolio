@@ -1,11 +1,15 @@
-import { Global } from "@emotion/react";
-import globalStyles from "./shared/global";
+import { Global } from '@emotion/react';
+import React, { Fragment } from 'react';
+import Main from './components/Main';
+import globalStyles from './shared/global';
 
 function App() {
   return (
-    <>
-      <Global styles={globalStyles} /> App
-    </>
+    <Fragment>
+    <Global styles={globalStyles} />
+
+       <Main/>
+    </Fragment>
   );
 }
 
