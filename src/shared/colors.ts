@@ -17,6 +17,9 @@ export const Colors = {
 
   gray1: '#d1d8e0',
   gray2: '#a5b1c2',
+
+  blackOverlay: 'rgba(0, 0, 0, 0.1)',
+  whiteOverlay: 'rgba(255, 255, 255, 0.7)'
 };
 
 export const Gradients = {
