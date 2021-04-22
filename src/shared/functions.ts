@@ -6,9 +6,9 @@ export const adjustAnimation = (size: number) => {
   } else if (window.innerWidth <= 700 && window.innerWidth > 500) {
     return size * 0.7;
   } else if (window.innerWidth <= 500 && window.innerWidth > 300) {
-    return size * 0.5;
-  } else if (window.innerWidth <= 300) {
     return size * 0.4;
+  } else if (window.innerWidth <= 300) {
+    return size * 0.3;
   }
 };
 

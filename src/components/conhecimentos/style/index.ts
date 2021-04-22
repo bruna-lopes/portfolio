@@ -4,6 +4,7 @@ import { DiCss3, DiHtml5, DiJsBadge, DiReact } from 'react-icons/di';
 import { SiTypescript } from 'react-icons/si';
 import { Colors } from '../../../shared/colors';
 import { adjustAnimation, adjustFont } from '../../../shared/functions';
+import { Media } from '../../../shared/media';
 
 export const ConhecimentosContainer = styled.div`
   height: 85vh;
@@ -19,6 +20,10 @@ export const CardContainer = styled.div`
   flex-wrap: wrap;
   width: 50%;
   justify-content: center;
+
+  @media ${Media.maxWidth.md} {
+    width: 70%;
+  }
 `;
 
 export const Titulo = styled.div`
@@ -28,8 +33,8 @@ export const Titulo = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  width: ${adjustAnimation(150)}px;
-  height: ${adjustAnimation(150)}px;
+  width: 150px;
+  height: 150px;
   margin: 10px;
   padding: 10px;
   display: flex;

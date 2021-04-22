@@ -1,13 +1,13 @@
 import * as S from './style';
-import DeveloperAnimation from '../../assets/developer.json';
 import Lottie from 'react-lottie';
 import { adjustAnimation } from '../../shared/functions';
+import LogoAnimation from '../../assets/logo.json';
 
 const Cabecalho = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: DeveloperAnimation,
+    animationData: LogoAnimation,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
@@ -23,7 +23,7 @@ const Cabecalho = () => {
       </S.TextoContainer>
       <Lottie
         options={defaultOptions}
-        height={adjustAnimation(500)}
+        height={adjustAnimation(400)}
         width={adjustAnimation(500)}
       />
     </S.CabecalhoContainer>

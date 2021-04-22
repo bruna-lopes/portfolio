@@ -1,16 +1,22 @@
 import styled from '@emotion/styled';
+import { AppBar } from '@material-ui/core';
 import { Colors } from '../../../shared/colors';
 import { adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
-export const MenuContainer = styled.div`
-  background-color: ${Colors.whiteOverlay};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100vw;
-  height: 15vh;
-  position: fixed;
+export const MenuContainer = styled(AppBar)`
+  &.MuiAppBar-root {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 15vh;
+    position: fixed;
+    flex: 1;
+    background-color: ${Colors.whiteOverlay};
+    color: ${Colors.fontColor};
+  }
 `;
 
 export const AnimationContainer = styled.div`

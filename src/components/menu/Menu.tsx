@@ -57,9 +57,8 @@ export const Menu = () => {
       <S.AnimationContainer>
         <Lottie
           options={defaultOptions}
-          height={adjustAnimation(80)}
-          width={adjustAnimation(125)}
-          style={{ borderRadius: 20 }}
+          height={adjustAnimation(100)}
+          width={adjustAnimation(150)}
         />
       </S.AnimationContainer>
     </S.MenuContainer>
