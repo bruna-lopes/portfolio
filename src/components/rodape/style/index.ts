@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from '@material-ui/core';
-import { Colors } from '../../shared/colors';
+import { Colors } from '../../../shared/colors';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -10,7 +10,7 @@ import TelegramIcon from '@material-ui/icons/Telegram';
 export const RodapeContainer = styled.footer`
   height: 10vh;
   display: flex;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
   align-items: center;
   background-color: ${Colors.blackOverlay};
@@ -18,9 +18,9 @@ export const RodapeContainer = styled.footer`
 
 export const StyledLink = styled(Link)`
   &.MuiLink-root {
-  margin: 10px;
+    margin: 10px;
     :hover {
-      color: ${Colors.pink2};
+      color: ${Colors.hoverPink};
     }
   }
 `;

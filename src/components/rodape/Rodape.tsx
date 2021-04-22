@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { Constants } from '../../shared/constants';
-import * as S from './index';
+import * as S from './style';
 
 export const Rodape = () => {
   return (

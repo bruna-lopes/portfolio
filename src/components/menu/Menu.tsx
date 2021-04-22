@@ -1,11 +1,13 @@
-import React from 'react';
-import * as S from './index';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import Brightness2Icon from '@material-ui/icons/Brightness2';
-import LogoAnimation from '../../assets/logo1.json';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import React, { useState } from 'react';
 import Lottie from 'react-lottie';
+import LogoAnimation from '../../assets/logo1.json';
+import * as S from './style';
 
 export const Menu = () => {
+  const [darkTheme, setDarkTheme] = useState<boolean>(false);
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -15,12 +17,42 @@ export const Menu = () => {
     },
   };
 
+  const toogleDarkTheme = () => {
+    setDarkTheme(!darkTheme);
+  };
+
+  const rollWindow = (where: string) => {
+    const sobre = (window.innerHeight / 100) * 85;
+    const conhecimentos = (window.innerHeight / 100) * 170;
+    const contatos = (window.innerHeight / 100) * 295;
+
+    switch (where) {
+      case 'introducao':
+        window.scrollTo(0, 0);
+        break;
+      case 'sobre':
+        window.scrollTo(0, sobre);
+        break;
+      case 'conhecimentos':
+        window.scrollTo(0, conhecimentos);
+        break;
+      case 'contatos':
+        window.scrollTo(0, contatos);
+        break;
+    }
+  };
+
   return (
     <S.MenuContainer>
-      <div>
-        <WbSunnyIcon />
-        Introdução Sobre Conhecimentos Contatos
-      </div>
+      <S.OpcoesContainer>
+        <span onClick={toogleDarkTheme}>
+          {darkTheme ? <WbSunnyIcon /> : <Brightness2Icon />}
+        </span>
+        <span onClick={() => rollWindow('introducao')}>Introdução</span>
+        <span onClick={() => rollWindow('sobre')}>Sobre </span>
+        <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
+        <span onClick={() => rollWindow('contatos')}>Contatos</span>
+      </S.OpcoesContainer>
       <S.AnimationContainer>
         <Lottie
           options={defaultOptions}
