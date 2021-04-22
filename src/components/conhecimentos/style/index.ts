@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { Card } from '@material-ui/core';
+import { DiCss3, DiHtml5, DiJsBadge, DiReact } from 'react-icons/di';
+import { SiTypescript } from 'react-icons/si';
 import { Colors } from '../../../shared/colors';
 import { adjustAnimation, adjustFont } from '../../../shared/functions';
 
@@ -33,6 +35,8 @@ export const StyledCard = styled(Card)`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  align-items: center;
+
   &.MuiCard-root {
     background-color: ${Colors.pink2};
   }
@@ -47,4 +51,29 @@ export const StyledCard = styled(Card)`
     text-align: center;
     font-size: ${adjustFont(14)}px;
   }
+`;
+
+export const IconeHTML = styled(DiHtml5)`
+  font-size: ${adjustFont(38)}px;
+  color: ${Colors.orange};
+`;
+
+export const IconeTS = styled(SiTypescript)`
+  font-size: ${adjustFont(35)}px;
+  color: ${Colors.blue5};
+`;
+
+export const IconeCSS = styled(DiCss3)`
+  font-size: ${adjustFont(38)}px;
+  color: ${Colors.blue4};
+`;
+
+export const IconeJS = styled(DiJsBadge)`
+  font-size: ${adjustFont(35)}px;
+  color: ${Colors.yellow};
+`;
+
+export const IconeReact = styled(DiReact)`
+  font-size: ${adjustFont(40)}px;
+  color: ${Colors.blue6};
 `;

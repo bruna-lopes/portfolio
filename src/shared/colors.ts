@@ -7,6 +7,9 @@ export const Colors = {
   blue1: '#03001e',
   blue2: '#7BDFF2',
   blue3: '#B2F7EF',
+  blue4: '#2873ba',
+  blue5: '#2c7acc',
+  blue6: '#61d9fb',
 
   purple1: '#7303c0',
   purple2: '#7E2E84',
@@ -17,6 +20,10 @@ export const Colors = {
 
   gray1: '#d1d8e0',
   gray2: '#a5b1c2',
+
+  orange: '#e44c25',
+
+  yellow: '#f6dd02',
 
   blackOverlay: 'rgba(0, 0, 0, 0.1)',
   whiteOverlay: 'rgba(255, 255, 255, 0.7)',
