@@ -1,5 +1,6 @@
 import React from 'react';
+import * as S from './index';
 
 export const Conhecimentos = () => {
-    return (<div>Conhecimentos</div>)
-}
+  return <S.ConhecimentosContainer>Conhecimentos</S.ConhecimentosContainer>;
+};

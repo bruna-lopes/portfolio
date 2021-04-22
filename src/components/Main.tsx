@@ -1,5 +1,5 @@
 import React from 'react';
-import Cabecalho from './cabecalho/cabecalho';
+import Cabecalho from './cabecalho/Cabecalho';
 import { Rodape } from './rodape/Rodape';
 import * as S from '../shared/style/index';
 import { Menu } from './menu/Menu';

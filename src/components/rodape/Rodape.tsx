@@ -1,55 +1,53 @@
-import React from 'react';
-import * as S from './index';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import TelegramIcon from '@material-ui/icons/Telegram';
+import React, { ReactElement } from 'react';
 import { Constants } from '../../shared/constants';
+import * as S from './index';
 
 export const Rodape = () => {
   return (
     <S.RodapeContainer>
-      <S.StyledLink
-        color="inherit"
-        href={Constants.urlLinkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        underline="none">
-        <LinkedInIcon />
-      </S.StyledLink>
-      <S.StyledLink
-        color="inherit"
-        href={Constants.urlGithub}
-        target="_blank"
-        rel="noopener noreferrer"
-        underline="none">
-        <GitHubIcon />
-      </S.StyledLink>
-      <S.StyledLink
-        color="inherit"
-        href={Constants.urlInstagram}
-        target="_blank"
-        rel="noopener noreferrer"
-        underline="none">
-        <InstagramIcon />
-      </S.StyledLink>
-      <S.StyledLink
-        color="inherit"
-        href={Constants.urlWhatsApp}
-        target="_blank"
-        rel="noopener noreferrer"
-        underline="none">
-        <WhatsAppIcon />
-      </S.StyledLink>
-      <S.StyledLink
-        color="inherit"
-        href={Constants.urlTelegram}
-        target="_blank"
-        rel="noopener noreferrer"
-        underline="none">
-        <TelegramIcon />
-      </S.StyledLink>
+      <LinkComponent href={Constants.urlLinkedin} tipo="linkedin" />
+      <LinkComponent href={Constants.urlGithub} tipo="github" />
+      <LinkComponent href={Constants.urlInstagram} tipo="instagram" />
+      <LinkComponent href={Constants.urlWhatsApp} tipo="whatsapp" />
+      <LinkComponent href={Constants.urlTelegram} tipo="telegram" />
     </S.RodapeContainer>
+  );
+};
+
+type LinkProps = {
+  href: string;
+  tipo: 'linkedin' | 'github' | 'instagram' | 'whatsapp' | 'telegram';
+};
+
+const LinkComponent = ({ href, tipo }: LinkProps) => {
+  let icone: ReactElement = <></>;
+
+  switch (tipo) {
+    case 'linkedin':
+      icone = <S.IconeLinkedin />;
+      break;
+    case 'github':
+      icone = <S.IconeGitHub />;
+      break;
+    case 'instagram':
+      icone = <S.IconeInstagram />;
+      break;
+    case 'whatsapp':
+      icone = <S.IconeWhatsApp />;
+      break;
+    case 'telegram':
+      icone = <S.IconeTelegram />;
+      break;
+  }
+
+  return (
+    <S.StyledLink
+      color="inherit"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      underline="none">
+      {icone}
+    </S.StyledLink>
   );
 };
