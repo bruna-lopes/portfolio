@@ -43,7 +43,7 @@ export const StyledCard = styled(Card)`
   align-items: center;
 
   &.MuiCard-root {
-    background-color: ${Colors.pink2};
+    background-color: ${Colors.whiteOverlay2};
   }
 
   & h1 {

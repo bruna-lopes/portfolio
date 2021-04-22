@@ -9,7 +9,7 @@ type CardProps = {
 
 export const Card = ({ titulo, anosExperiencia, icone }: CardProps) => {
   return (
-    <S.StyledCard raised={true}>
+    <S.StyledCard>
       {icone}
       <h1> {titulo}</h1>
       <p>

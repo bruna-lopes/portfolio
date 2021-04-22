@@ -26,7 +26,9 @@ export const Colors = {
   yellow: '#f6dd02',
 
   blackOverlay: 'rgba(0, 0, 0, 0.1)',
+
   whiteOverlay: 'rgba(255, 255, 255, 0.7)',
+  whiteOverlay2: 'rgba(255, 255, 255, 0.5)',
 };
 
 export const Gradients = {
