@@ -1,8 +1,9 @@
 import Brightness2Icon from '@material-ui/icons/Brightness2';
 import WbSunnyIcon from '@material-ui/icons/WbSunny';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
+import { adjustAnimation } from '../../shared/functions';
 import * as S from './style';
 
 export const Menu = () => {
@@ -56,8 +57,8 @@ export const Menu = () => {
       <S.AnimationContainer>
         <Lottie
           options={defaultOptions}
-          height={80}
-          width={100}
+          height={adjustAnimation(80)}
+          width={adjustAnimation(125)}
           style={{ borderRadius: 20 }}
         />
       </S.AnimationContainer>

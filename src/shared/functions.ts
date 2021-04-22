@@ -1,0 +1,41 @@
+export const adjustAnimation = (size: number) => {
+  if (window.innerWidth > 1000) {
+    return size;
+  } else if (window.innerWidth <= 1000 && window.innerWidth > 700) {
+    return size * 0.8;
+  } else if (window.innerWidth <= 700 && window.innerWidth > 500) {
+    return size * 0.7;
+  } else if (window.innerWidth <= 500 && window.innerWidth > 300) {
+    return size * 0.5;
+  } else if (window.innerWidth <= 300) {
+    return size * 0.4;
+  }
+};
+
+export const adjustFont = (size: number) => {
+  if (window.innerWidth > 1000) {
+    return size;
+  } else if (window.innerWidth <= 1000 && window.innerWidth > 700) {
+    return size * 0.9;
+  } else if (window.innerWidth <= 700 && window.innerWidth > 500) {
+    return size * 0.8;
+  } else if (window.innerWidth <= 500 && window.innerWidth > 300) {
+    return size * 0.7;
+  } else if (window.innerWidth <= 300) {
+    return size * 0.6;
+  }
+};
+
+export const calcularIdade = () => {
+  const dataHoje = new Date();
+  const anoAtual: number = parseInt(dataHoje.getFullYear().toString());
+
+  return anoAtual - 1992;
+};
+
+export const calcularExpeciencia = (anoComeco: number) => {
+  const dataHoje = new Date();
+  const anoAtual: number = parseInt(dataHoje.getFullYear().toString());
+
+  return anoAtual - anoComeco;
+};
