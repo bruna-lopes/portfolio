@@ -1,7 +1,9 @@
-import * as S from './style';
+import React from 'react';
 import Lottie from 'react-lottie';
-import { adjustAnimation } from '../../shared/functions';
 import LogoAnimation from '../../assets/logo.json';
+import { Constants } from '../../shared/constants';
+import { adjustComponent } from '../../shared/functions';
+import * as S from './style';
 
 const Cabecalho = () => {
   const defaultOptions = {
@@ -20,11 +22,16 @@ const Cabecalho = () => {
           Olá, meu nome é <span>Bruna Lopes</span>.
         </p>
         <p>Sou desenvolvedora Front-end.</p>
+
+        <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
+          LinkedIn
+        </S.BotaoLinkedin>
       </S.TextoContainer>
+
       <Lottie
         options={defaultOptions}
-        height={adjustAnimation(400)}
-        width={adjustAnimation(500)}
+        height={adjustComponent(400)}
+        width={adjustComponent(500)}
       />
     </S.CabecalhoContainer>
   );

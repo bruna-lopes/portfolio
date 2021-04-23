@@ -1,4 +1,4 @@
-export const adjustAnimation = (size: number) => {
+export const adjustComponent = (size: number) => {
   if (window.innerWidth > 1000) {
     return size;
   } else if (window.innerWidth <= 1000 && window.innerWidth > 700) {

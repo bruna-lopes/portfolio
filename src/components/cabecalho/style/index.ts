@@ -1,12 +1,20 @@
 import styled from '@emotion/styled';
+import { Button } from '@material-ui/core';
 import { Colors } from '../../../shared/colors';
 import { adjustFont } from '../../../shared/functions';
+import { Media } from '../../../shared/media';
 
 export const CabecalhoContainer = styled.div`
   background-color: ${Colors.blackOverlay};
   height: 100vh;
   display: flex;
   align-items: center;
+
+  @media ${Media.maxWidth.sm} {
+    padding-top: 25vh;
+    flex-direction: column;
+    height: 75vh;
+  }
 `;
 
 export const TextoContainer = styled.div`
@@ -15,10 +23,23 @@ export const TextoContainer = styled.div`
   text-align: center;
 
   & p {
-    font-size: ${adjustFont(25)}px;
+    font-size: ${adjustFont(30)}px;
   }
 
   & span {
     font-weight: 600;
   }
+`;
+
+export const BotaoLinkedin = styled(Button)`
+    &.MuiButton-root{
+      margin: 30px;
+      background-color: ${Colors.fontColor};
+      color: ${Colors.whiteOverlay};
+      text-transform: inherit;
+
+      :hover{
+        background-color: ${Colors.hoverPink};
+      }
+    }
 `;

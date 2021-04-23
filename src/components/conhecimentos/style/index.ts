@@ -3,11 +3,11 @@ import { Card } from '@material-ui/core';
 import { DiCss3, DiHtml5, DiJsBadge, DiReact } from 'react-icons/di';
 import { SiTypescript } from 'react-icons/si';
 import { Colors } from '../../../shared/colors';
-import { adjustAnimation, adjustFont } from '../../../shared/functions';
+import { adjustComponent, adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
 export const ConhecimentosContainer = styled.div`
-  height: 85vh;
+  min-height: 85vh;
   background-color: ${Colors.blackOverlay};
   display: flex;
   justify-content: center;
@@ -24,6 +24,7 @@ export const CardContainer = styled.div`
   @media ${Media.maxWidth.md} {
     width: 70%;
   }
+ 
 `;
 
 export const Titulo = styled.div`
@@ -33,8 +34,8 @@ export const Titulo = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  width: 150px;
-  height: 150px;
+  width: ${adjustComponent(150)}px;
+  height: ${adjustComponent(150)}px;;
   margin: 10px;
   padding: 10px;
   display: flex;

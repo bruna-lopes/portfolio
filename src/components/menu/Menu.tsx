@@ -3,7 +3,7 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import { useState } from 'react';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
-import { adjustAnimation } from '../../shared/functions';
+import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 
 export const Menu = () => {
@@ -46,9 +46,9 @@ export const Menu = () => {
   return (
     <S.MenuContainer>
       <S.OpcoesContainer>
-        <span onClick={toogleDarkTheme}>
+        <strong onClick={toogleDarkTheme}>
           {darkTheme ? <WbSunnyIcon /> : <Brightness2Icon />}
-        </span>
+        </strong>
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
@@ -57,8 +57,8 @@ export const Menu = () => {
       <S.AnimationContainer>
         <Lottie
           options={defaultOptions}
-          height={adjustAnimation(100)}
-          width={adjustAnimation(150)}
+          height={adjustComponent(80)}
+          width={adjustComponent(120)}
         />
       </S.AnimationContainer>
     </S.MenuContainer>

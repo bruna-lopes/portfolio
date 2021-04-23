@@ -26,7 +26,7 @@ export const AnimationContainer = styled.div`
 export const OpcoesContainer = styled.div`
   width: 40%;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 2px;
@@ -45,4 +45,16 @@ export const OpcoesContainer = styled.div`
       color: ${Colors.hoverPink};
     }
   }
+
+  & strong {
+    cursor: pointer;
+    margin: 0.5vw;
+    font-size: ${adjustFont(20)}px;
+    padding-left: 0.3vw;
+
+    :hover {
+      color: ${Colors.hoverPink};
+    }
+  }
+
 `;
