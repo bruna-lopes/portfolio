@@ -1,5 +1,3 @@
-import Brightness2Icon from '@material-ui/icons/Brightness2';
-import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import { useState } from 'react';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
@@ -16,10 +14,6 @@ export const Menu = () => {
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
-  };
-
-  const toogleDarkTheme = () => {
-    setDarkTheme(!darkTheme);
   };
 
   const rollWindow = (where: string) => {
