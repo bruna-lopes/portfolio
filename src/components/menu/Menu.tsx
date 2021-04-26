@@ -5,8 +5,6 @@ import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 
 export const Menu = () => {
-  const [darkTheme, setDarkTheme] = useState<boolean>(false);
-
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -40,9 +38,6 @@ export const Menu = () => {
   return (
     <S.MenuContainer>
       <S.OpcoesContainer>
-        {/* <strong onClick={toogleDarkTheme}>
-          {darkTheme ? <WbSunnyIcon /> : <Brightness2Icon />}
-        </strong> */}
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
