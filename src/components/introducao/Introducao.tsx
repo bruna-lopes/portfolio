@@ -4,7 +4,7 @@ import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 
-const Cabecalho = () => {
+const Introducao = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -15,7 +15,7 @@ const Cabecalho = () => {
   };
 
   return (
-    <S.CabecalhoContainer>
+    <S.IntroducaoContainer>
       <S.TextoContainer>
         <p>
           Olá, meu nome é <strong>Bruna Lopes</strong>.
@@ -32,8 +32,8 @@ const Cabecalho = () => {
         height={adjustComponent(400)}
         width={adjustComponent(500)}
       />
-    </S.CabecalhoContainer>
+    </S.IntroducaoContainer>
   );
 };
 
-export default Cabecalho;
+export default Introducao;

@@ -4,7 +4,7 @@ import { Colors } from '../../../shared/colors';
 import { adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
-export const CabecalhoContainer = styled.div`
+export const IntroducaoContainer = styled.div`
   background-color: ${Colors.blackOverlay};
   height: 100vh;
   display: flex;

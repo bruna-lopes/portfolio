@@ -1,5 +1,5 @@
 import React from 'react';
-import Cabecalho from './cabecalho/Cabecalho';
+import Introducao from './introducao/Introducao';
 import { Rodape } from './rodape/Rodape';
 import * as S from '../shared/style/index';
 import { Menu } from './menu/Menu';
@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <S.MainContainer>
       <Menu />
-      <Cabecalho />
+      <Introducao />
       <SobreMim />
       <Conhecimentos />
       <Rodape />
