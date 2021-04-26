@@ -46,9 +46,9 @@ export const Menu = () => {
   return (
     <S.MenuContainer>
       <S.OpcoesContainer>
-        <strong onClick={toogleDarkTheme}>
+        {/* <strong onClick={toogleDarkTheme}>
           {darkTheme ? <WbSunnyIcon /> : <Brightness2Icon />}
-        </strong>
+        </strong> */}
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
