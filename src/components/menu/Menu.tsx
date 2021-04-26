@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
 import { adjustComponent } from '../../shared/functions';
