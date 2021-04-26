@@ -43,7 +43,7 @@ export const TextoContainer = styled.div`
     margin-bottom: 10px;
   }
 
-  & span {
+  & strong {
     font-weight: 700;
   }
 `;

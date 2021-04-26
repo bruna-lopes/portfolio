@@ -1,4 +1,3 @@
-import React from 'react';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo.json';
 import { Constants } from '../../shared/constants';
@@ -19,7 +18,7 @@ const Cabecalho = () => {
     <S.CabecalhoContainer>
       <S.TextoContainer>
         <p>
-          Olá, meu nome é <span>Bruna Lopes</span>.
+          Olá, meu nome é <strong>Bruna Lopes</strong>.
         </p>
         <p>Sou desenvolvedora Front-end.</p>
 

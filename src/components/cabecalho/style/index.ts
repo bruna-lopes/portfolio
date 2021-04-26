@@ -26,20 +26,20 @@ export const TextoContainer = styled.div`
     font-size: ${adjustFont(30)}px;
   }
 
-  & span {
+  & strong {
     font-weight: 600;
   }
 `;
 
 export const BotaoLinkedin = styled(Button)`
-    &.MuiButton-root{
-      margin: 30px;
-      background-color: ${Colors.fontColor};
-      color: ${Colors.whiteOverlay};
-      text-transform: inherit;
+  &.MuiButton-root {
+    margin: 30px;
+    background-color: ${Colors.fontColor};
+    color: ${Colors.whiteOverlay};
+    text-transform: inherit;
 
-      :hover{
-        background-color: ${Colors.hoverPink};
-      }
+    :hover {
+      background-color: ${Colors.hoverPink};
     }
+  }
 `;
