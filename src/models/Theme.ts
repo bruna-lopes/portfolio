@@ -2,36 +2,35 @@ export interface ThemeProps {
   title: string;
 
   colors: {
-    white: string;
     black: string;
+    white: string;
+    fontColor: string;
+    hoverPink: string;
 
-    orange: string;
-    red: string;
-    purple: string;
-    cian: string;
-    blue: string;
+    blue1: string;
+    blue2: string;
+    blue3: string;
+    blue4: string;
+    blue5: string;
+    blue6: string;
 
-    primary: string;
+    purple1: string;
+    purple2: string;
 
-    title: string;
-    mainBg: string;
-    sideBg: string;
-    inputText: string;
-    chatList: string;
-    chatListHover: string;
-    border: string;
+    pink1: string;
+    pink2: string;
+    pink3: string;
 
-    gray: string;
     gray1: string;
     gray2: string;
-    gray3: string;
-    gray4: string;
-    gray5: string;
 
-    blueDark: string;
-    purpleDark: string;
-    redLight: string;
-    greenLight: string;
-    purpleLight: string;
+    orange: string;
+
+    yellow: string;
+
+    blackOverlay: string;
+
+    whiteOverlay: string;
+    whiteOverlay2: string;
   };
 }

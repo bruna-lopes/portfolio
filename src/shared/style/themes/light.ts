@@ -4,36 +4,35 @@ export default {
   title: 'light',
 
   colors: {
-    white: '#FAFAFA',
-    black: '#030517',
+    black: '#000',
+    white: '#fff',
+    fontColor: '#4b6584',
+    hoverPink: '#fd79a8',
 
-    orange: '#F7931B',
-    red: '#E44C4E',
-    purple: '#4E41F0',
-    cian: '#313862',
-    blue: '#2596be',
+    blue1: '#03001e',
+    blue2: '#7BDFF2',
+    blue3: '#B2F7EF',
+    blue4: '#2873ba',
+    blue5: '#2c7acc',
+    blue6: '#61d9fb',
 
-    primary: '#f4f3f8',
+    purple1: '#7303c0',
+    purple2: '#7E2E84',
 
-    title: '#030517',
-    mainBg: '#FAFAFA',
-    sideBg: '#FAFAFA',
-    inputText: '#030517',
-    chatList: '#BFBFBF',
-    chatListHover: '#DCDCDC',
-    border: '#f2f1f6',
+    pink1: '#ec38bc',
+    pink2: '#fff0f5',
+    pink3: '#da627d',
 
-    gray: '#BFBFBF',
-    gray1: '#DCDCDC',
-    gray2: '#e9e8ed',
-    gray3: '#f2f1f6',
-    gray4: '#f4f3f8',
-    gray5: '#F5F5F5',
+    gray1: '#d1d8e0',
+    gray2: '#a5b1c2',
 
-    blueDark: '#1B1F38',
-    purpleDark: '#252A48',
-    redLight: '#FF6961',
-    greenLight: '#03BB85',
-    purpleLight: '#3B5998',
+    orange: '#e44c25',
+
+    yellow: '#f6dd02',
+
+    blackOverlay: 'rgba(0, 0, 0, 0.1)',
+
+    whiteOverlay: 'rgba(255, 255, 255, 0.7)',
+    whiteOverlay2: 'rgba(255, 255, 255, 0.5)',
   },
 } as ThemeProps;

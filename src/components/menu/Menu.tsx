@@ -2,19 +2,8 @@ import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
-import { GrSolaris } from 'react-icons/gr';
-import { useState } from 'react';
-import { useTheme } from '../../hooks/useTheme';
 
 export const Menu = () => {
-  const { toggleTheme, theme } = useTheme();
-  const [darkTheme, setDarkTheme] = useState(() => theme.title === 'dark');
-
-  const handleChangeTheme = () => {
-    const changeTheme = !darkTheme;
-    setDarkTheme(changeTheme);
-    toggleTheme();
-  };
 
   const defaultOptions = {
     loop: true,
@@ -49,7 +38,6 @@ export const Menu = () => {
   return (
     <S.MenuContainer>
       <S.OpcoesContainer>
-        <GrSolaris onClick={handleChangeTheme} />
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
