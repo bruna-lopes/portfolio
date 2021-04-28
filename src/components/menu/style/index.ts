@@ -15,7 +15,12 @@ export const MenuContainer = styled(AppBar)`
     position: fixed;
     flex: 1;
     background-color: ${Colors.whiteOverlay};
+    
     color: ${Colors.fontColor};
+
+    @media ${Media.maxWidth.sm} {
+      display: none;
+    }
   }
 `;
 
@@ -56,5 +61,4 @@ export const OpcoesContainer = styled.div`
       color: ${Colors.hoverPink};
     }
   }
-
 `;

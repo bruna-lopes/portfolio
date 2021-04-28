@@ -11,9 +11,9 @@ export const IntroducaoContainer = styled.div`
   align-items: center;
 
   @media ${Media.maxWidth.sm} {
-    padding-top: 25vh;
+    height: 80vh;
     flex-direction: column;
-    height: 75vh;
+    justify-content: space-evenly;
   }
 `;
 

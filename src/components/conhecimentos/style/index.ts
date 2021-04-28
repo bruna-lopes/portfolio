@@ -13,6 +13,10 @@ export const ConhecimentosContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media ${Media.maxWidth.sm} {
+    min-height: 70vh;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -24,7 +28,6 @@ export const CardContainer = styled.div`
   @media ${Media.maxWidth.md} {
     width: 70%;
   }
- 
 `;
 
 export const Titulo = styled.div`
@@ -35,7 +38,7 @@ export const Titulo = styled.div`
 
 export const StyledCard = styled(Card)`
   width: ${adjustComponent(150)}px;
-  height: ${adjustComponent(150)}px;;
+  height: ${adjustComponent(150)}px;
   margin: 10px;
   padding: 10px;
   display: flex;

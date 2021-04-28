@@ -14,6 +14,7 @@ export const SobreMimContainer = styled.div`
 
   @media ${Media.maxWidth.sm} {
     flex-direction: column;
+    height: 70vh;
   }
 `;
 
