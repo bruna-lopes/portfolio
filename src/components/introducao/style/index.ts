@@ -23,7 +23,6 @@ export const IntroducaoContainer = styled.div<Props>`
     flex-direction: column;
     justify-content: center;
   }
-  
 `;
 
 export const TextoContainer = styled.div`
@@ -37,6 +36,10 @@ export const TextoContainer = styled.div`
 
   & strong {
     font-weight: 600;
+  }
+
+  @media ${Media.maxWidth.sm} {
+    width: 70%;
   }
 `;
 
