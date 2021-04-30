@@ -2,8 +2,14 @@ import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { useState } from 'react';
+import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { DarkModeActions } from '../../context/darkMode/darkMode.types';
 
 export const Menu = () => {
+  const { dispatch } = useDarkModeContext();
+  const [dark, setDark] = useState(false);
 
   const defaultOptions = {
     loop: true,
@@ -12,6 +18,14 @@ export const Menu = () => {
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
+  };
+
+  const toggleDarkTheme = () => {
+    setDark(!dark);
+    dispatch({
+      type: DarkModeActions.DARK_MODE,
+      payload: dark,
+    });
   };
 
   const rollWindow = (where: string) => {
@@ -38,6 +52,7 @@ export const Menu = () => {
   return (
     <S.MenuContainer>
       <S.OpcoesContainer>
+        <span onClick={() => toggleDarkTheme()}>{dark ? <FiSun /> : <FiMoon />}</span>
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>

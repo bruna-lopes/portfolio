@@ -35,7 +35,7 @@ export const BotaoLinkedin = styled(Button)`
   &.MuiButton-root {
     margin: 30px;
     background-color: ${Colors.fontColor};
-    color: ${Colors.whiteOverlay};
+    color: ${Colors.whiteOverlay}; 
     text-transform: inherit;
 
     :hover {
