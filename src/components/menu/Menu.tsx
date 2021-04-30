@@ -2,8 +2,13 @@ import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
+import { FiSun, FiMoon } from 'react-icons/fi';
+import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { DarkModeActions } from '../../context/darkMode/darkMode.types';
 
 export const Menu = () => {
+  const { dispatch, state } = useDarkModeContext();
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -11,6 +16,13 @@ export const Menu = () => {
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
+  };
+
+  const toggleDarkTheme = () => {
+    dispatch({
+      type: DarkModeActions.DARK_MODE,
+      payload: !state.darkMode,
+    });
   };
 
   const rollWindow = (where: string) => {
@@ -33,10 +45,12 @@ export const Menu = () => {
         break;
     }
   };
-
   return (
-    <S.MenuContainer>
-      <S.OpcoesContainer>
+    <S.MenuContainer dark={state.darkMode.toString()}>
+      <S.OpcoesContainer dark={state.darkMode.toString()}>
+        <strong onClick={() => toggleDarkTheme()}>
+          {state.darkMode ? <FiSun /> : <FiMoon />}
+        </strong>
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>

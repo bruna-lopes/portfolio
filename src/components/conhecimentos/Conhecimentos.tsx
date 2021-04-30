@@ -1,12 +1,15 @@
 import React, { ReactElement } from 'react';
+import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { calcularExpeciencia } from '../../shared/functions';
 import { Card } from './Card';
 import * as S from './style';
 
 export const Conhecimentos = () => {
+  const { state } = useDarkModeContext();
+
   return (
-    <S.ConhecimentosContainer>
-      <S.Titulo>Conhecimentos</S.Titulo>
+    <S.ConhecimentosContainer dark={state.darkMode.toString()}>
+      <S.Titulo dark={state.darkMode.toString()}>Conhecimentos</S.Titulo>
       <S.CardContainer>
         {conhecimentos.map((item, index) => (
           <Card
@@ -14,6 +17,7 @@ export const Conhecimentos = () => {
             icone={item.icone}
             titulo={item.titulo}
             anosExperiencia={item.anosExpeciencia}
+            dark={state.darkMode.toString()}
           />
         ))}
       </S.CardContainer>

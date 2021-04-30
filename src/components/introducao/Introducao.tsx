@@ -1,10 +1,12 @@
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo.json';
+import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 
 const Introducao = () => {
+  const { state } = useDarkModeContext();
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -15,14 +17,17 @@ const Introducao = () => {
   };
 
   return (
-    <S.IntroducaoContainer>
+    <S.IntroducaoContainer dark={state.darkMode.toString()}>
       <S.TextoContainer>
         <p>
           Olá, meu nome é <strong>Bruna Lopes</strong>.
         </p>
         <p>Sou desenvolvedora Front-end.</p>
 
-        <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
+        <S.BotaoLinkedin
+          dark={state.darkMode.toString()}
+          variant="contained"
+          href={Constants.urlLinkedin}>
           LinkedIn
         </S.BotaoLinkedin>
       </S.TextoContainer>
