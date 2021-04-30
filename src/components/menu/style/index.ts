@@ -18,14 +18,14 @@ export const MenuContainer = styled(AppBar)<MainProps>`
     position: fixed;
     flex: 1;
 
+    @media ${Media.maxWidth.sm} {
+      height: 10vh;
+    }
+
     ${({ dark }) =>
       dark === 'true'
         ? `background-color: ${Colors.blackOverlay2}; color: ${Colors.fontColorDark};`
         : `background-color: ${Colors.whiteOverlay}; color: ${Colors.fontColor};`}
-
-    @media ${Media.maxWidth.sm} {
-      display: none;
-    }
   }
 `;
 
@@ -44,6 +44,7 @@ export const OpcoesContainer = styled.div<MainProps>`
   @media ${Media.maxWidth.md} {
     width: 70%;
     margin: 4vw;
+    justify-content: flex-start;
   }
 
   & span {
@@ -56,6 +57,10 @@ export const OpcoesContainer = styled.div<MainProps>`
         dark === 'true'
           ? `color: ${Colors.hoverPinkDark};`
           : `color: ${Colors.hoverPink};`}
+    }
+
+    @media ${Media.maxWidth.sm} {
+      display: none;
     }
   }
 
@@ -70,6 +75,9 @@ export const OpcoesContainer = styled.div<MainProps>`
         dark === 'true'
           ? `color: ${Colors.hoverPinkDark};`
           : `color: ${Colors.hoverPink};`}
+    }
+    @media ${Media.maxWidth.sm} {
+      font-size: ${adjustFont(50)}px;
     }
   }
 `;

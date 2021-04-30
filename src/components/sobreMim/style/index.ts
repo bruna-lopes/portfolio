@@ -22,7 +22,7 @@ export const SobreMimContainer = styled.div<Props>`
 
   @media ${Media.maxWidth.sm} {
     flex-direction: column;
-    height: 70vh;
+    height: 60vh;
   }
 `;
 
@@ -52,6 +52,10 @@ export const TextoContainer = styled.div<Props>`
 
     ${({ dark }) =>
       dark === 'true' ? `color: ${Colors.pink1};` : `color: ${Colors.white};`}
+
+    @media ${Media.maxWidth.sm} {
+      margin-top: 15px;
+    }
   }
 
   & p {
