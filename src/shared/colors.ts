@@ -8,6 +8,7 @@ export const Colors = {
   blue5: '#2c7acc',
   blue6: '#61d9fb',
 
+  pink1: '#fde2e4',
   pink2: '#fff0f5',
   pink3: '#da627d',
 
@@ -16,12 +17,17 @@ export const Colors = {
   yellow: '#f6dd02',
 
   blackOverlay: 'rgba(0, 0, 0, 0.1)',
+  blackOverlay2: 'rgba(0, 0, 0, 0.6)',
 
   whiteOverlay: 'rgba(255, 255, 255, 0.7)',
   whiteOverlay2: 'rgba(255, 255, 255, 0.5)',
+  whiteOverlay3: 'rgba(255, 255, 255, 0.1)',
+
+  fontColorDark: '#f8edeb',
+  hoverPinkDark: '#ffc6ff',
 };
 
 export const Gradients = {
-  blueToPink: 'linear-gradient(to bottom, #03001e, #7303c0, #ec38bc, #fdeff9)',
-  blueToPinkTwo: 'linear-gradient(to bottom, #7BDFF2, #F2B5D4, #fdeff9)',
+  blueToPink: 'linear-gradient(to bottom, #7BDFF2, #F2B5D4, #fdeff9)',
+  blueToPinkDark: 'linear-gradient(to bottom, #03045e, #480ca8, #9d4edd)',
 };

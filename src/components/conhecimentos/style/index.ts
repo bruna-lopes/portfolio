@@ -6,13 +6,22 @@ import { Colors } from '../../../shared/colors';
 import { adjustComponent, adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
-export const ConhecimentosContainer = styled.div`
+type Props = {
+  dark: string;
+};
+
+export const ConhecimentosContainer = styled.div<Props>`
   min-height: 85vh;
   background-color: ${Colors.blackOverlay};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  ${({ dark }) =>
+    dark === 'true'
+      ? `background-color: ${Colors.whiteOverlay3};`
+      : `background-color: ${Colors.blackOverlay};`}
 
   @media ${Media.maxWidth.sm} {
     min-height: 70vh;
@@ -30,13 +39,15 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const Titulo = styled.div`
-  color: ${Colors.pink2};
+export const Titulo = styled.div<Props>`
   font-size: ${adjustFont(40)}px;
   font-weight: 700;
+
+  ${({ dark }) =>
+    dark === 'true' ? `color: ${Colors.pink1};` : `color: ${Colors.pink2};`}
 `;
 
-export const StyledCard = styled(Card)`
+export const StyledCard = styled(Card)<Props>`
   width: ${adjustComponent(150)}px;
   height: ${adjustComponent(150)}px;
   margin: 10px;
@@ -47,18 +58,26 @@ export const StyledCard = styled(Card)`
   align-items: center;
 
   &.MuiCard-root {
-    background-color: ${Colors.whiteOverlay2};
+    ${({ dark }) =>
+      dark === 'true'
+        ? `background-color: ${Colors.blackOverlay2};`
+        : `background-color: ${Colors.whiteOverlay2};`}
   }
 
   & h1 {
     text-align: center;
-    color: ${Colors.pink3};
     font-size: ${adjustFont(16)}px;
+
+    ${({ dark }) =>
+      dark === 'true' ? `color: ${Colors.hoverPinkDark};` : `color: ${Colors.pink3};`}
   }
 
   & p {
     text-align: center;
     font-size: ${adjustFont(14)}px;
+
+    ${({ dark }) =>
+      dark === 'true' ? `color: ${Colors.fontColorDark};` : `color: ${Colors.fontColor};`}
   }
 `;
 

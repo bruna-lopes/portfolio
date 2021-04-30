@@ -3,13 +3,11 @@ import LogoAnimation from '../../assets/logo1.json';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { useState } from 'react';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { DarkModeActions } from '../../context/darkMode/darkMode.types';
 
 export const Menu = () => {
-  const { dispatch } = useDarkModeContext();
-  const [dark, setDark] = useState(false);
+  const { dispatch, state } = useDarkModeContext();
 
   const defaultOptions = {
     loop: true,
@@ -21,10 +19,9 @@ export const Menu = () => {
   };
 
   const toggleDarkTheme = () => {
-    setDark(!dark);
     dispatch({
       type: DarkModeActions.DARK_MODE,
-      payload: dark,
+      payload: !state.darkMode,
     });
   };
 
@@ -48,11 +45,12 @@ export const Menu = () => {
         break;
     }
   };
-
   return (
-    <S.MenuContainer>
-      <S.OpcoesContainer>
-        <span onClick={() => toggleDarkTheme()}>{dark ? <FiSun /> : <FiMoon />}</span>
+    <S.MenuContainer dark={state.darkMode.toString()}>
+      <S.OpcoesContainer dark={state.darkMode.toString()}>
+        <strong onClick={() => toggleDarkTheme()}>
+          {state.darkMode ? <FiSun /> : <FiMoon />}
+        </strong>
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>

@@ -4,7 +4,10 @@ import { Colors } from '../../../shared/colors';
 import { adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
-export const MenuContainer = styled(AppBar)`
+type MainProps = {
+  dark: string;
+};
+export const MenuContainer = styled(AppBar)<MainProps>`
   &.MuiAppBar-root {
     display: flex;
     flex-direction: row;
@@ -14,9 +17,11 @@ export const MenuContainer = styled(AppBar)`
     height: 15vh;
     position: fixed;
     flex: 1;
-    background-color: ${Colors.whiteOverlay};
-    
-    color: ${Colors.fontColor};
+
+    ${({ dark }) =>
+      dark === 'true'
+        ? `background-color: ${Colors.blackOverlay2}; color: ${Colors.fontColorDark};`
+        : `background-color: ${Colors.whiteOverlay}; color: ${Colors.fontColor};`}
 
     @media ${Media.maxWidth.sm} {
       display: none;
@@ -28,7 +33,7 @@ export const AnimationContainer = styled.div`
   margin-right: 20px;
 `;
 
-export const OpcoesContainer = styled.div`
+export const OpcoesContainer = styled.div<MainProps>`
   width: 40%;
   display: flex;
   align-items: baseline;
@@ -47,18 +52,24 @@ export const OpcoesContainer = styled.div`
     font-size: ${adjustFont(20)}px;
 
     :hover {
-      color: ${Colors.hoverPink};
+      ${({ dark }) =>
+        dark === 'true'
+          ? `color: ${Colors.hoverPinkDark};`
+          : `color: ${Colors.hoverPink};`}
     }
   }
 
   & strong {
     cursor: pointer;
     margin: 0.5vw;
-    font-size: ${adjustFont(20)}px;
+    font-size: ${adjustFont(25)}px;
     padding-left: 0.3vw;
 
     :hover {
-      color: ${Colors.hoverPink};
+      ${({ dark }) =>
+        dark === 'true'
+          ? `color: ${Colors.hoverPinkDark};`
+          : `color: ${Colors.hoverPink};`}
     }
   }
 `;

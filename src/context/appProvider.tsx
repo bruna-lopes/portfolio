@@ -10,7 +10,6 @@ type AppProviderProps = {
 
 export const AppProvider = ({ children }: AppProviderProps) => {
   const { state } = useDarkModeContext();
-console.log(state.darkMode)
 
   return (
     <MuiThemeProvider theme={state.darkMode ? DarkTheme : LightTheme}>

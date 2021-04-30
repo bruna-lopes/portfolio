@@ -1,16 +1,25 @@
 import { createMuiTheme } from '@material-ui/core';
 
-export const DarkTheme =  createMuiTheme({
+export const DarkTheme = createMuiTheme({
   palette: {
-    primary: {
-      main: '#9b59b6',
-    },
     text: {
       primary: '#4b6584',
+      secondary: '#fff0f5',
+      hint: '#da627d',
+    },
+    primary: {
+      main: '#9b59b6',
     },
     action: {
       hover: '#fd79a8',
     },
     contrastThreshold: 3,
-    },
-})
+  },
+  typography: {
+    fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
+    fontSize: 14,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+  },
+});

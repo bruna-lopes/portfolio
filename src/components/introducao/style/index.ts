@@ -4,11 +4,19 @@ import { Colors } from '../../../shared/colors';
 import { adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
-export const IntroducaoContainer = styled.div`
-  background-color: ${Colors.blackOverlay};
+type Props = {
+  dark: string;
+};
+
+export const IntroducaoContainer = styled.div<Props>`
   height: 100vh;
   display: flex;
   align-items: center;
+
+  ${({ dark }) =>
+    dark === 'true'
+      ? `background-color: ${Colors.whiteOverlay3};`
+      : `background-color: ${Colors.blackOverlay};`}
 
   @media ${Media.maxWidth.sm} {
     height: 80vh;
@@ -31,15 +39,21 @@ export const TextoContainer = styled.div`
   }
 `;
 
-export const BotaoLinkedin = styled(Button)`
+export const BotaoLinkedin = styled(Button)<Props>`
   &.MuiButton-root {
     margin: 30px;
-    background-color: ${Colors.fontColor};
-    color: ${Colors.whiteOverlay}; 
     text-transform: inherit;
 
+    ${({ dark }) =>
+      dark === 'true'
+        ? `background-color: ${Colors.fontColorDark}; color: ${Colors.fontColor};`
+        : `background-color: ${Colors.fontColor}; color: ${Colors.whiteOverlay};`}
+
     :hover {
-      background-color: ${Colors.hoverPink};
+      ${({ dark }) =>
+        dark === 'true'
+          ? `background-color: ${Colors.hoverPinkDark}; `
+          : `background-color: ${Colors.hoverPink}; `}
     }
   }
 `;

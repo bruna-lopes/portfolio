@@ -1,14 +1,24 @@
 import { createMuiTheme } from '@material-ui/core';
+import { Colors, Gradients } from '../../colors';
 
 export const LightTheme = createMuiTheme({
   palette: {
     text: {
-      primary: '#4b6584',
-      secondary: '#fff0f5',
-      hint: '#da627d',
+      primary: `${Colors.fontColor}`,
+      secondary: `${Colors.pink2}`,
+      hint: `${Colors.pink3}`,
+    },
+    primary: {
+      main: `${Colors.white}`,
+    },
+    secondary: {
+      main: `${Colors.fontColor}`,
     },
     action: {
-      hover: '#fd79a8',
+      hover: `${Colors.hoverPink}`,
+    },
+    background: {
+      default: `${Gradients.blueToPink}`,
     },
     contrastThreshold: 3,
   },
