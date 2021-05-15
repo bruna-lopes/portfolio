@@ -5,6 +5,7 @@ import * as S from './style';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { DarkModeActions } from '../../context/darkMode/darkMode.types';
+import { useEffect } from 'react';
 
 export const Menu = () => {
   const { dispatch, state } = useDarkModeContext();
@@ -19,11 +20,26 @@ export const Menu = () => {
   };
 
   const toggleDarkTheme = () => {
+    let dadoAux = JSON.stringify(!state.darkMode);
+    localStorage.setItem('darkMode', dadoAux);
     dispatch({
       type: DarkModeActions.DARK_MODE,
       payload: !state.darkMode,
     });
   };
+
+  const getDarkMode = () => {
+    const dadoAux = localStorage.getItem('darkMode');
+    dispatch({
+      type: DarkModeActions.DARK_MODE,
+      payload: dadoAux,
+    });
+  };
+
+  useEffect(() => {
+    getDarkMode();
+    // eslint-disable-next-line
+  }, []);
 
   const rollWindow = (where: string) => {
     const sobre = (window.innerHeight / 100) * 85;
