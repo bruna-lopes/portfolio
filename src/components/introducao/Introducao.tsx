@@ -5,6 +5,7 @@ import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
+import { FaLinkedinIn } from 'react-icons/fa';
 
 const Introducao = () => {
   const { state } = useDarkModeContext();
@@ -29,7 +30,7 @@ const Introducao = () => {
           dark={state.darkMode.toString()}
           variant="contained"
           href={Constants.urlLinkedin}>
-          LinkedIn
+          <FaLinkedinIn style={{ fontSize: '30' }} />
         </S.BotaoLinkedin>
       </S.TextoContainer>
 

@@ -62,4 +62,8 @@ export const TextoContainer = styled.div<Props>`
   & strong {
     font-weight: 700;
   }
+
+  @media ${Media.maxWidth.sm} {
+    width: 70%;
+  }
 `;

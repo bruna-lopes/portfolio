@@ -19,9 +19,9 @@ export const IntroducaoContainer = styled.div<Props>`
       : `background-color: ${Colors.blackOverlay};`}
 
   @media ${Media.maxWidth.sm} {
-    height: 80vh;
+    height: 100vh;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
   }
 `;
 
@@ -31,11 +31,15 @@ export const TextoContainer = styled.div`
   text-align: center;
 
   & p {
-    font-size: ${adjustFont(30)}px;
+    font-size: ${adjustFont(35)}px;
   }
 
   & strong {
     font-weight: 600;
+  }
+
+  @media ${Media.maxWidth.sm} {
+    width: 70%;
   }
 `;
 

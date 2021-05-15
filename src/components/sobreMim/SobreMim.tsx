@@ -16,8 +16,7 @@ export const SobreMim = () => {
           e moro atualmente na cidade de Vila Velha - ES.
         </p>
         <p>
-          Eu sou uma dev procurando resolver problemas do mundo real. Tenho paixão por
-          aprender e compartilhar meu conhecimento com os outros.
+          Eu sou uma dev que assim como outras pessoas de minha geração, escolheu a profissão por amor, mesmo depois de quase 10 anos no mercado de trabalho, atuando em outras áreas.
         </p>
       </S.TextoContainer>
     </S.SobreMimContainer>
