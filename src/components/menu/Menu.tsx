@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo1.json';
-import { adjustComponent } from '../../shared/functions';
-import * as S from './style';
-import { FiSun, FiMoon } from 'react-icons/fi';
-import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import LogoDarkMode from '../../assets/logoDarkMode.json';
 import { DarkModeActions } from '../../context/darkMode/darkMode.types';
+import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { adjustComponent, parseBool } from '../../shared/functions';
+import * as S from './style';
 
 export const Menu = () => {
   const { dispatch, state } = useDarkModeContext();
@@ -12,18 +14,34 @@ export const Menu = () => {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: LogoAnimation,
+    animationData: state.darkMode ? LogoDarkMode : LogoAnimation,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
   const toggleDarkTheme = () => {
+    let dadoAux = JSON.stringify(!state.darkMode);
+    localStorage.setItem('darkMode', dadoAux);
     dispatch({
       type: DarkModeActions.DARK_MODE,
       payload: !state.darkMode,
     });
   };
+
+  const getDarkMode = () => {
+    const dadoAux = localStorage.getItem('darkMode');
+    const dadoBool = parseBool(dadoAux!);
+    dispatch({
+      type: DarkModeActions.DARK_MODE,
+      payload: dadoBool,
+    });
+  };
+
+  useEffect(() => {
+    getDarkMode();
+    // eslint-disable-next-line
+  }, []);
 
   const rollWindow = (where: string) => {
     const sobre = (window.innerHeight / 100) * 85;

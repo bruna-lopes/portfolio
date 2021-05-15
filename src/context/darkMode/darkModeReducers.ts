@@ -1,12 +1,12 @@
-import { DarkModeActions } from "./darkMode.types";
-import { GenericContext } from "../genericContext";
-import { DarkModeState, DARK_MODE_INITIAL_STATE } from "./constants";
+import { DarkModeActions } from './darkMode.types';
+import { GenericContext } from '../genericContext';
+import { DarkModeState, DARK_MODE_INITIAL_STATE } from './constants';
 
 export type DarkModeDispatch = (action: DarkModeAction) => void;
 
 export function darkModeReducer(
   state: DarkModeState,
-  action: DarkModeAction
+  action: DarkModeAction,
 ): DarkModeState {
   switch (action.type) {
     case DarkModeActions.DARK_MODE: {
