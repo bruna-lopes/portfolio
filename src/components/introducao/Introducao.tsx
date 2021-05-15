@@ -4,13 +4,14 @@ import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
+import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
 
 const Introducao = () => {
   const { state } = useDarkModeContext();
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: LogoAnimation,
+    animationData: state.darkMode ? LogoDarkMode1 : LogoAnimation,
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },

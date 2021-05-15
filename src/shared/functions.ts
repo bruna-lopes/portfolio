@@ -39,3 +39,12 @@ export const calcularExpeciencia = (anoComeco: number) => {
 
   return anoAtual - anoComeco;
 };
+
+export const parseBool = (dadoString: string) => {
+  if (dadoString === 'true') return true;
+  if (dadoString === 'false') {
+    return false;
+  } else {
+    return false;
+  }
+};
