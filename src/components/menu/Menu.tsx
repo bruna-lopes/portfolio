@@ -27,6 +27,8 @@ export const Menu = () => {
   };
 
   const toggleDarkTheme = () => {
+    localStorage.setItem('darkMode', JSON.stringify(!state.darkMode));
+
     dispatch({
       type: DarkModeActions.DARK_MODE,
       payload: !state.darkMode,
@@ -37,11 +39,13 @@ export const Menu = () => {
     let idiomaAtual = stateIdioma.idioma;
 
     if (idiomaAtual === IdiomasEnum.Ingles) {
+      localStorage.setItem('idioma', IdiomasEnum.Portugues);
       dispatchIdioma({
         type: IdiomaActions.PORTUGUES,
         payload: IdiomasEnum.Portugues,
       });
     } else if (idiomaAtual === IdiomasEnum.Portugues) {
+      localStorage.setItem('idioma', IdiomasEnum.Ingles);
       dispatchIdioma({
         type: IdiomaActions.INGLES,
         payload: IdiomasEnum.Ingles,
@@ -52,6 +56,7 @@ export const Menu = () => {
   const getData = () => {
     const dadoAux = localStorage.getItem('darkMode');
     const dadoBool = parseBool(dadoAux!);
+
     dispatch({
       type: DarkModeActions.DARK_MODE,
       payload: dadoBool,
