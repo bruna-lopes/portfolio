@@ -34,7 +34,7 @@ export const AnimationContainer = styled.div`
 `;
 
 export const OpcoesContainer = styled.div<MainProps>`
-  width: 40%;
+  width: 60%;
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
@@ -49,7 +49,7 @@ export const OpcoesContainer = styled.div<MainProps>`
 
   & span {
     cursor: pointer;
-    margin: 0.5vw;
+    margin: 1vw;
     font-size: ${adjustFont(20)}px;
 
     :hover {
@@ -79,5 +79,16 @@ export const OpcoesContainer = styled.div<MainProps>`
     @media ${Media.maxWidth.sm} {
       font-size: ${adjustFont(50)}px;
     }
+  }
+`;
+
+export const IconeImg = styled.img`
+  width: 20px;
+  height: 20px;
+
+  @media ${Media.maxWidth.md} {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
   }
 `;

@@ -35,6 +35,7 @@ const Introducao = () => {
       </S.TextoContainer>
 
       <Lottie
+        style={{ margin: '2px' }}
         options={defaultOptions}
         height={adjustComponent(400)}
         width={adjustComponent(500)}

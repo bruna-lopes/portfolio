@@ -10,9 +10,13 @@ export function darkModeReducer(
 ): DarkModeState {
   switch (action.type) {
     case DarkModeActions.DARK_MODE: {
+    localStorage.setItem('darkMode', JSON.stringify(true));
+
       return { ...state, darkMode: action.payload };
     }
     case DarkModeActions.LIGHT_MODE: {
+    localStorage.setItem('darkMode', JSON.stringify(false));
+
       return DARK_MODE_INITIAL_STATE;
     }
 

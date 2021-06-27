@@ -5,11 +5,17 @@ import LogoAnimation from '../../assets/logo1.json';
 import LogoDarkMode from '../../assets/logoDarkMode.json';
 import { DarkModeActions } from '../../context/darkMode/darkMode.types';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { useIdiomaContext } from '../../context/idioma/idiomaContext';
+import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { adjustComponent, parseBool } from '../../shared/functions';
 import * as S from './style';
+import IconeBr from '../../assets/icone-bandeira-botao-brasil.png';
+import IconeEua from '../../assets/icone-bandeira-botao-eua.png';
+import { IdiomaActions } from '../../context/idioma/idioma.types';
 
 export const Menu = () => {
   const { dispatch, state } = useDarkModeContext();
+  const { dispatchIdioma, stateIdioma } = useIdiomaContext();
 
   const defaultOptions = {
     loop: true,
@@ -21,25 +27,52 @@ export const Menu = () => {
   };
 
   const toggleDarkTheme = () => {
-    let dadoAux = JSON.stringify(!state.darkMode);
-    localStorage.setItem('darkMode', dadoAux);
     dispatch({
       type: DarkModeActions.DARK_MODE,
       payload: !state.darkMode,
     });
   };
 
-  const getDarkMode = () => {
+  const toggleIdioma = () => {
+    let idiomaAtual = stateIdioma.idioma;
+
+    if (idiomaAtual === IdiomasEnum.Ingles) {
+      dispatchIdioma({
+        type: IdiomaActions.PORTUGUES,
+        payload: IdiomasEnum.Portugues,
+      });
+    } else if (idiomaAtual === IdiomasEnum.Portugues) {
+      dispatchIdioma({
+        type: IdiomaActions.INGLES,
+        payload: IdiomasEnum.Ingles,
+      });
+    }
+  };
+
+  const getData = () => {
     const dadoAux = localStorage.getItem('darkMode');
     const dadoBool = parseBool(dadoAux!);
     dispatch({
       type: DarkModeActions.DARK_MODE,
       payload: dadoBool,
     });
+
+    const idioma = localStorage.getItem('idioma');
+    if (idioma === IdiomasEnum.Ingles) {
+      dispatchIdioma({
+        type: IdiomaActions.INGLES,
+        payload: idioma,
+      });
+    } else {
+      dispatchIdioma({
+        type: IdiomaActions.PORTUGUES,
+        payload: idioma,
+      });
+    }
   };
 
   useEffect(() => {
-    getDarkMode();
+    getData();
     // eslint-disable-next-line
   }, []);
 
@@ -69,6 +102,13 @@ export const Menu = () => {
         <strong onClick={() => toggleDarkTheme()}>
           {state.darkMode ? <FiSun /> : <FiMoon />}
         </strong>
+
+        <strong onClick={() => toggleIdioma()}>
+          <S.IconeImg
+            src={stateIdioma.idioma === IdiomasEnum.Portugues ? IconeBr : IconeEua}
+          />
+        </strong>
+
         <span onClick={() => rollWindow('introducao')}>Introdução</span>
         <span onClick={() => rollWindow('sobre')}>Sobre </span>
         <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>

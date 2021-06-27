@@ -1,3 +1,4 @@
+import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { GenericContext } from '../genericContext';
 import { IdiomaState, IDIOMA_INITIAL_STATE } from './constants';
 import { IdiomaActions } from './idioma.types';
@@ -7,9 +8,11 @@ export type IdiomaDispatch = (action: IdiomaAction) => void;
 export function idiomaReducer(state: IdiomaState, action: IdiomaAction): IdiomaState {
   switch (action.type) {
     case IdiomaActions.INGLES: {
+      localStorage.setItem('idioma', IdiomasEnum.Portugues);
       return { ...state, idioma: action.payload };
     }
     case IdiomaActions.PORTUGUES: {
+      localStorage.setItem('idioma', IdiomasEnum.Ingles);
       return IDIOMA_INITIAL_STATE;
     }
     default: {

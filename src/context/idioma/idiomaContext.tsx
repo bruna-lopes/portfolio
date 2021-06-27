@@ -28,7 +28,7 @@ function useIdiomaContext() {
     throw new Error('useIdiomaState deve ser utilizado dentro de um IdiomaProvider');
   }
 
-  const dispatchIdioma = useContext(IdiomaStateContext);
+  const dispatchIdioma = useContext(IdiomaDispatchContext);
 
   if (dispatchIdioma === undefined) {
     throw new Error('useIdiomaDispatch deve ser utilizado dentro de um IdiomaProvider');
