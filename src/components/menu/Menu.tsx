@@ -110,7 +110,7 @@ export const Menu = () => {
 
         <strong onClick={() => toggleIdioma()}>
           <S.IconeImg
-            src={stateIdioma.idioma === IdiomasEnum.Portugues ? IconeBr : IconeEua}
+            src={stateIdioma.idioma === IdiomasEnum.Portugues ? IconeEua : IconeBr}
           />
         </strong>
 
