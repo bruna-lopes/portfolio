@@ -6,9 +6,13 @@ import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 import { FaLinkedinIn } from 'react-icons/fa';
 import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
+import { useIdiomaContext } from '../../context/idioma/idiomaContext';
+import { IdiomasEnum } from '../../models/IdiomasEnum';
 
 const Introducao = () => {
   const { state } = useDarkModeContext();
+  const { stateIdioma } = useIdiomaContext();
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -21,10 +25,21 @@ const Introducao = () => {
   return (
     <S.IntroducaoContainer dark={state.darkMode.toString()}>
       <S.TextoContainer>
-        <p>
-          Olá, meu nome é <strong>Bruna Lopes</strong>.
-        </p>
-        <p>Sou desenvolvedora Front-end.</p>
+        {stateIdioma.idioma === IdiomasEnum.Portugues ? (
+          <>
+            <p>
+              Olá, meu nome é <strong>Bruna Lopes</strong>.
+            </p>
+            <p>Sou desenvolvedora Front-end.</p>
+          </>
+        ) : (
+          <>
+            <p>
+              Hello, my name is <strong>Bruna Lopes</strong>.
+            </p>
+            <p>I'm a Front-end Developer</p>
+          </>
+        )}
 
         <S.BotaoLinkedin
           dark={state.darkMode.toString()}

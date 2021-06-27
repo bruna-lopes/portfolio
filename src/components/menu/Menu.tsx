@@ -109,10 +109,21 @@ export const Menu = () => {
           />
         </strong>
 
-        <span onClick={() => rollWindow('introducao')}>Introdução</span>
-        <span onClick={() => rollWindow('sobre')}>Sobre </span>
-        <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
-        <span onClick={() => rollWindow('contatos')}>Contatos</span>
+        {stateIdioma.idioma === IdiomasEnum.Portugues ? (
+          <>
+            <span onClick={() => rollWindow('introducao')}>Introdução</span>
+            <span onClick={() => rollWindow('sobre')}>Sobre </span>
+            <span onClick={() => rollWindow('conhecimentos')}>Conhecimentos</span>
+            <span onClick={() => rollWindow('contatos')}>Contatos</span>
+          </>
+        ) : (
+          <>
+            <span onClick={() => rollWindow('introducao')}>Introduction</span>
+            <span onClick={() => rollWindow('sobre')}>About </span>
+            <span onClick={() => rollWindow('conhecimentos')}>Knowledge</span>
+            <span onClick={() => rollWindow('contatos')}>Contacts</span>
+          </>
+        )}
       </S.OpcoesContainer>
       <S.AnimationContainer>
         <Lottie
