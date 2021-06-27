@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer,  ReactNode, useContext} from "react";
 import { DarkModeActions } from "./darkMode.types";
 import { DarkModeDispatch, darkModeReducer } from "./darkModeReducers";
 import { DarkModeState, DARK_MODE_INITIAL_STATE } from "./constants";
@@ -10,7 +10,7 @@ const DarkModeDispatchContext = createContext<DarkModeDispatch | undefined>(
   undefined
 );
 
-type DarkModeProps = { children: React.ReactNode };
+type DarkModeProps = { children: ReactNode };
 
 function DarkModeProvider({ children }: DarkModeProps) {
   const [state, dispatch] = useReducer(
@@ -28,7 +28,7 @@ function DarkModeProvider({ children }: DarkModeProps) {
 }
 
 function useDarkModeContext() {
-  const state = React.useContext(DarkModeStateContext);
+  const state = useContext(DarkModeStateContext);
 
   if (state === undefined) {
     throw new Error(
@@ -36,7 +36,7 @@ function useDarkModeContext() {
     );
   }
 
-  const dispatch = React.useContext(DarkModeDispatchContext);
+  const dispatch = useContext(DarkModeDispatchContext);
 
   if (dispatch === undefined) {
     throw new Error(

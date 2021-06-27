@@ -17,7 +17,7 @@ export function darkModeReducer(
     }
 
     default: {
-      throw new Error(`Ação não identificada: ${action!.type}`);
+      throw new Error(`Ação não identificada: ${action!}`);
     }
   }
 }
