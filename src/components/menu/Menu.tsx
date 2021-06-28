@@ -64,18 +64,21 @@ export const Menu = () => {
 
     const idioma = localStorage.getItem('idioma');
 
-    if (idioma === IdiomasEnum.Ingles || window.navigator.language !== 'pt-BR') {
+    if (idioma === null && window.navigator.language !== 'pt-BR') {
       dispatchIdioma({
         type: IdiomaActions.INGLES,
         payload: IdiomasEnum.Ingles,
       });
-      console.log('if');
+    } else if (idioma === IdiomasEnum.Ingles) {
+      dispatchIdioma({
+        type: IdiomaActions.INGLES,
+        payload: idioma,
+      });
     } else {
       dispatchIdioma({
         type: IdiomaActions.PORTUGUES,
         payload: idioma,
       });
-      console.log('else');
     }
   };
 
