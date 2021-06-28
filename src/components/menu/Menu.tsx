@@ -63,16 +63,19 @@ export const Menu = () => {
     });
 
     const idioma = localStorage.getItem('idioma');
-    if (idioma === IdiomasEnum.Ingles) {
+
+    if (idioma === IdiomasEnum.Ingles || window.navigator.language !== 'pt-BR') {
       dispatchIdioma({
         type: IdiomaActions.INGLES,
-        payload: idioma,
+        payload: IdiomasEnum.Ingles,
       });
+      console.log('if');
     } else {
       dispatchIdioma({
         type: IdiomaActions.PORTUGUES,
         payload: idioma,
       });
+      console.log('else');
     }
   };
 
