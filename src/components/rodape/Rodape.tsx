@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { Constants } from '../../shared/constants';
 import * as S from './style';
@@ -6,33 +6,19 @@ import * as S from './style';
 export const Rodape = () => {
   const { state } = useDarkModeContext();
 
+  const iconesRodape: LinkProps[] = [
+    { href: Constants.urlLinkedin, tipo: 'linkedin' },
+    { href: Constants.urlGithub, tipo: 'github' },
+    { href: Constants.urlInstagram, tipo: 'instagram' },
+    { href: Constants.urlWhatsApp, tipo: 'whatsapp' },
+    { href: Constants.urlTelegram, tipo: 'telegram' },
+  ];
+
   return (
     <S.RodapeContainer dark={state.darkMode.toString()}>
-      <LinkComponent
-        href={Constants.urlLinkedin}
-        tipo="linkedin"
-        dark={state.darkMode.toString()}
-      />
-      <LinkComponent
-        href={Constants.urlGithub}
-        tipo="github"
-        dark={state.darkMode.toString()}
-      />
-      <LinkComponent
-        href={Constants.urlInstagram}
-        tipo="instagram"
-        dark={state.darkMode.toString()}
-      />
-      <LinkComponent
-        href={Constants.urlWhatsApp}
-        tipo="whatsapp"
-        dark={state.darkMode.toString()}
-      />
-      <LinkComponent
-        href={Constants.urlTelegram}
-        tipo="telegram"
-        dark={state.darkMode.toString()}
-      />
+      {iconesRodape.map((item, index) => (
+        <LinkComponent key={index} href={item.href} tipo={item.tipo} />
+      ))}
     </S.RodapeContainer>
   );
 };
@@ -40,27 +26,27 @@ export const Rodape = () => {
 type LinkProps = {
   href: string;
   tipo: 'linkedin' | 'github' | 'instagram' | 'whatsapp' | 'telegram';
-  dark: string;
 };
 
-const LinkComponent = ({ href, tipo, dark }: LinkProps) => {
+const LinkComponent = ({ href, tipo }: LinkProps) => {
   let icone: ReactElement = <></>;
+  const { state } = useDarkModeContext();
 
   switch (tipo) {
     case 'linkedin':
-      icone = <S.IconeLinkedin dark={dark} />;
+      icone = <S.IconeLinkedin dark={state.darkMode.toString()} />;
       break;
     case 'github':
-      icone = <S.IconeGitHub dark={dark} />;
+      icone = <S.IconeGitHub dark={state.darkMode.toString()} />;
       break;
     case 'instagram':
-      icone = <S.IconeInstagram dark={dark} />;
+      icone = <S.IconeInstagram dark={state.darkMode.toString()} />;
       break;
     case 'whatsapp':
-      icone = <S.IconeWhatsApp dark={dark} />;
+      icone = <S.IconeWhatsApp dark={state.darkMode.toString()} />;
       break;
     case 'telegram':
-      icone = <S.IconeTelegram dark={dark} />;
+      icone = <S.IconeTelegram dark={state.darkMode.toString()} />;
       break;
   }
 
