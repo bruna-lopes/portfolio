@@ -48,8 +48,8 @@ export const Titulo = styled.div<Props>`
 `;
 
 export const StyledCard = styled(Card)<Props>`
-  width: ${adjustComponent(150)}px;
-  height: ${adjustComponent(150)}px;
+  width: ${adjustComponent(170)}px;
+  height: ${adjustComponent(170)}px;
   margin: 10px;
   padding: 10px;
   display: flex;
@@ -58,10 +58,14 @@ export const StyledCard = styled(Card)<Props>`
   align-items: center;
 
   &.MuiCard-root {
+    backdrop-filter: blur(11.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
     ${({ dark }) =>
       dark === 'true'
-        ? `background-color: ${Colors.blackOverlay2};`
-        : `background-color: ${Colors.whiteOverlay2};`}
+        ? `background: ${Colors.blackOverlay2}; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);`
+        : `background: ${Colors.whiteOverlay2}; box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.3);`}
   }
 
   & h1 {

@@ -94,16 +94,16 @@ export const Menu = () => {
 
     switch (where) {
       case 'introducao':
-        window.scrollTo(0, 0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         break;
       case 'sobre':
-        window.scrollTo(0, sobre);
+        window.scrollTo({ top: sobre, behavior: 'smooth' });
         break;
       case 'conhecimentos':
-        window.scrollTo(0, conhecimentos);
+        window.scrollTo({ top: conhecimentos, behavior: 'smooth' });
         break;
       case 'contatos':
-        window.scrollTo(0, contatos);
+        window.scrollTo({ top: contatos, behavior: 'smooth' });
         break;
     }
   };
