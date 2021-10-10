@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Button } from '@material-ui/core';
 import { Colors } from '../../../shared/colors';
-import { adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
 type Props = {
@@ -22,6 +21,7 @@ export const IntroducaoContainer = styled.div<Props>`
     height: 100vh;
     flex-direction: column;
     justify-content: center;
+    padding-top: 10vh;
   }
 `;
 
@@ -31,7 +31,14 @@ export const TextoContainer = styled.div`
   text-align: center;
 
   & p {
-    font-size: ${adjustFont(35)}px;
+    font-size: 35px;
+
+    @media ${Media.maxWidth.md} {
+      font-size: 30px;
+    }
+    @media ${Media.maxWidth.ms} {
+      font-size: 25px;
+    }
   }
 
   & strong {

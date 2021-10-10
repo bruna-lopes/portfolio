@@ -1,5 +1,6 @@
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { IdiomasEnum } from '../../models/IdiomasEnum';
+import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
 
 type CardProps = {
@@ -11,8 +12,19 @@ type CardProps = {
 };
 
 export const Card = ({ titulo, anosExperiencia, icone, dark, idioma }: CardProps) => {
+  const [widthCard, setWidthCard] = useState<number | undefined>(130);
+  const [heightCard, setHeightCard] = useState<number | undefined>(130);
+
+  window.addEventListener('resize', () => {
+    setWidthCard(adjustComponent(130));
+    setHeightCard(adjustComponent(130));
+  });
+
   return (
-    <S.StyledCard dark={dark}>
+    <S.StyledCard
+      dark={dark}
+      width={widthCard?.toString()}
+      height={heightCard?.toString()}>
       {icone}
       <h1> {titulo}</h1>
       {idioma === IdiomasEnum.Portugues ? (

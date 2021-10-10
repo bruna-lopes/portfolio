@@ -1,17 +1,20 @@
+import { useState } from 'react';
+import { FaLinkedinIn } from 'react-icons/fa';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo.json';
+import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { useIdiomaContext } from '../../context/idioma/idiomaContext';
+import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
 import * as S from './style';
-import { FaLinkedinIn } from 'react-icons/fa';
-import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
-import { useIdiomaContext } from '../../context/idioma/idiomaContext';
-import { IdiomasEnum } from '../../models/IdiomasEnum';
 
 const Introducao = () => {
   const { state } = useDarkModeContext();
   const { stateIdioma } = useIdiomaContext();
+  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(120);
+  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(80);
 
   const defaultOptions = {
     loop: true,
@@ -21,6 +24,11 @@ const Introducao = () => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
+
+  window.addEventListener('resize', () => {
+    setWidthAnimation(adjustComponent(500));
+    setHeightAnimation(adjustComponent(400));
+  });
 
   return (
     <S.IntroducaoContainer dark={state.darkMode.toString()}>
@@ -52,8 +60,8 @@ const Introducao = () => {
       <Lottie
         style={{ margin: '2px' }}
         options={defaultOptions}
-        height={adjustComponent(400)}
-        width={adjustComponent(500)}
+        height={heightAnimation}
+        width={widthAnimation}
       />
     </S.IntroducaoContainer>
   );

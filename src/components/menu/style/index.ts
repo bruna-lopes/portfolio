@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { AppBar } from '@material-ui/core';
 import { Colors } from '../../../shared/colors';
-import { adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
 
 type MainProps = {
@@ -39,7 +38,7 @@ export const OpcoesContainer = styled.div<MainProps>`
   align-items: baseline;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 2px;
+  padding: 5px;
 
   @media ${Media.maxWidth.md} {
     width: 70%;
@@ -50,7 +49,14 @@ export const OpcoesContainer = styled.div<MainProps>`
   & span {
     cursor: pointer;
     margin: 1vw;
-    font-size: ${adjustFont(20)}px;
+    font-size: 20px;
+
+    @media ${Media.maxWidth.md} {
+      font-size: 18px;
+    }
+    @media ${Media.maxWidth.ms} {
+      font-size: 16px;
+    }
 
     :hover {
       ${({ dark }) =>
@@ -67,8 +73,15 @@ export const OpcoesContainer = styled.div<MainProps>`
   & strong {
     cursor: pointer;
     margin: 0.5vw;
-    font-size: ${adjustFont(25)}px;
+    font-size: 25px;
     padding-left: 0.3vw;
+
+    @media ${Media.maxWidth.md} {
+      font-size: 20px;
+    }
+    @media ${Media.maxWidth.ms} {
+      font-size: 18px;
+    }
 
     :hover {
       ${({ dark }) =>
@@ -76,19 +89,21 @@ export const OpcoesContainer = styled.div<MainProps>`
           ? `color: ${Colors.hoverPinkDark};`
           : `color: ${Colors.hoverPink};`}
     }
-    @media ${Media.maxWidth.sm} {
-      font-size: ${adjustFont(50)}px;
-    }
   }
 `;
 
 export const IconeImg = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 
   @media ${Media.maxWidth.md} {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+  }
+  @media ${Media.maxWidth.ms} {
+    width: 18px;
+    height: 18px;
     margin: 0 5px;
   }
 `;
