@@ -13,8 +13,12 @@ import * as S from './style';
 const Introducao = () => {
   const { state } = useDarkModeContext();
   const { stateIdioma } = useIdiomaContext();
-  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(120);
-  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(80);
+  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(
+    adjustComponent(500),
+  );
+  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(
+    adjustComponent(400),
+  );
 
   const defaultOptions = {
     loop: true,

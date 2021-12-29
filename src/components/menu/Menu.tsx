@@ -16,8 +16,12 @@ import * as S from './style';
 export const Menu = () => {
   const { dispatch, state } = useDarkModeContext();
   const { dispatchIdioma, stateIdioma } = useIdiomaContext();
-  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(120);
-  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(80);
+  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(
+    adjustComponent(120),
+  );
+  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(
+    adjustComponent(80),
+  );
 
   const defaultOptions = {
     loop: true,

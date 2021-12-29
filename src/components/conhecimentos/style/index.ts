@@ -25,7 +25,7 @@ export const ConhecimentosContainer = styled.div<Props>`
       : `background-color: ${Colors.blackOverlay};`}
 
   @media ${Media.maxWidth.sm} {
-    min-height: 70vh;
+    min-height: 80vh;
   }
 `;
 
@@ -64,6 +64,11 @@ export const StyledCard = styled(Card)<Props>`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media ${Media.maxWidth.ms} {
+    width: 20vw;
+    height: 20vw;
+  }
 
   &.MuiCard-root {
     backdrop-filter: blur(11.5px);

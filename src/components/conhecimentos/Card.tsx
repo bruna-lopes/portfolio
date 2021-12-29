@@ -12,8 +12,8 @@ type CardProps = {
 };
 
 export const Card = ({ titulo, anosExperiencia, icone, dark, idioma }: CardProps) => {
-  const [widthCard, setWidthCard] = useState<number | undefined>(130);
-  const [heightCard, setHeightCard] = useState<number | undefined>(130);
+  const [widthCard, setWidthCard] = useState<number | undefined>(adjustComponent(130));
+  const [heightCard, setHeightCard] = useState<number | undefined>(adjustComponent(130));
 
   window.addEventListener('resize', () => {
     setWidthCard(adjustComponent(130));
