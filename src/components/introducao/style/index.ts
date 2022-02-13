@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import { Button } from '@material-ui/core';
+import styled from 'styled-components';
 import { Colors } from '../../../shared/colors';
 import { Media } from '../../../shared/media';
 

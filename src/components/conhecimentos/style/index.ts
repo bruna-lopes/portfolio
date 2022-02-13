@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
 import { Card } from '@material-ui/core';
 import { DiCss3, DiHtml5, DiJsBadge, DiReact } from 'react-icons/di';
 import { SiTypescript } from 'react-icons/si';
+import styled from 'styled-components';
 import { Colors } from '../../../shared/colors';
 import { Media } from '../../../shared/media';
 
