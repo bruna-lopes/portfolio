@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
 import { Link } from '@material-ui/core';
 import { AiOutlineWhatsApp } from 'react-icons/ai';
 import { FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa';
 import { FiGithub, FiInstagram } from 'react-icons/fi';
+import styled from 'styled-components';
 import { Colors } from '../../../shared/colors';
 import { Media } from '../../../shared/media';
 

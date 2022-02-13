@@ -1,7 +1,7 @@
-import styled from '@emotion/styled';
 import { Colors } from '../../../shared/colors';
 import Foto from '../../../assets/FotoBruna.jpeg';
 import { Media } from '../../../shared/media';
+import styled from 'styled-components';
 
 type Props = {
   dark: string;
