@@ -12,12 +12,11 @@ type Props = {
 
 export const ConhecimentosContainer = styled.div<Props>`
   min-height: 85vh;
-  background-color: ${Colors.blackOverlay};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  background-color: ${(props) => props.theme.backgroundOverlay};
   color: ${(props) => props.theme.conhecimentosContainerBackground};
 
   @media ${Media.maxWidth.sm} {
@@ -74,7 +73,7 @@ export const StyledCard = styled(Card)<Props>`
 
   & h1 {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
     color: ${(props) => props.theme.tituloCard};
 
     @media ${Media.maxWidth.md} {
@@ -84,23 +83,10 @@ export const StyledCard = styled(Card)<Props>`
       font-size: 12px;
     }
   }
-
-  & p {
-    text-align: center;
-    font-size: 14px;
-    color: ${(props) => props.theme.textoCard};
-
-    @media ${Media.maxWidth.md} {
-      font-size: 12px;
-    }
-    @media ${Media.maxWidth.ms} {
-      font-size: 10px;
-    }
-  }
 `;
 
 export const IconeHTML = styled(DiHtml5)`
-  font-size: 38px;
+  font-size: 45px;
   color: ${Colors.orange};
 
   @media ${Media.maxWidth.md} {
@@ -112,7 +98,7 @@ export const IconeHTML = styled(DiHtml5)`
 `;
 
 export const IconeTS = styled(SiTypescript)`
-  font-size: 35px;
+  font-size: 40px;
   color: ${Colors.blue5};
 
   @media ${Media.maxWidth.md} {
@@ -124,7 +110,7 @@ export const IconeTS = styled(SiTypescript)`
 `;
 
 export const IconeCSS = styled(DiCss3)`
-  font-size: 38px;
+  font-size: 45px;
   color: ${Colors.blue4};
 
   @media ${Media.maxWidth.md} {
@@ -136,7 +122,7 @@ export const IconeCSS = styled(DiCss3)`
 `;
 
 export const IconeJS = styled(DiJsBadge)`
-  font-size: 35px;
+  font-size: 40px;
   color: ${Colors.yellow};
 
   @media ${Media.maxWidth.md} {
@@ -148,7 +134,7 @@ export const IconeJS = styled(DiJsBadge)`
 `;
 
 export const IconeReact = styled(DiReact)`
-  font-size: 40px;
+  font-size: 50px;
   color: ${Colors.blue6};
 
   @media ${Media.maxWidth.md} {
@@ -156,5 +142,24 @@ export const IconeReact = styled(DiReact)`
   }
   @media ${Media.maxWidth.ms} {
     font-size: 30px;
+  }
+`;
+
+export const IconeFreeMarker = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media ${Media.maxWidth.md} {
+    font-size: 35px;
+  }
+  @media ${Media.maxWidth.ms} {
+    font-size: 30px;
+  }
+
+  img {
+    width: 58px;
+    height: 35px;
+    margin: 0;
   }
 `;

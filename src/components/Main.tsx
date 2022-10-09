@@ -13,7 +13,7 @@ const Main = () => {
 
   return (
     <ThemeProvider theme={state.darkMode ? theme.dark : theme.light}>
-      <S.MainContainer dark={state.darkMode}>
+      <S.MainContainer>
         <Menu />
         <Introducao />
         <SobreMim />

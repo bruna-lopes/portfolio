@@ -7,10 +7,18 @@ export interface ColorsTheme {
   menuBackgroundColor: string;
   menuTextColor: string;
   opcoesContainerHoverColor: string;
-  conhecimentosContainerBackground: string;
+  backgroundOverlay: string;
   tituloConhecimentos: string;
   cardBackground: string;
   boxShadowCard: string;
   tituloCard: string;
-  textoCard: string;
+  botaoInBackground: string;
+  botaoInColor: string;
+  botaoInBackgroundHover: string;
+  backgroundGradient: string;
+  fontColor: string;
+  iconeHover: string;
+  fotoBorder: string;
+  sobreMimTitulo: string;
+  foto: string;
 }
