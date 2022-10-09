@@ -5,9 +5,9 @@ import LogoAnimation from '../../assets/logo.json';
 import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
-import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
+import { Textos } from '../../shared/textos';
 import * as S from './style';
 
 const Introducao = () => {
@@ -37,21 +37,13 @@ const Introducao = () => {
   return (
     <S.IntroducaoContainer>
       <S.TextoContainer>
-        {stateIdioma.idioma === IdiomasEnum.Portugues ? (
-          <>
-            <p>
-              Olá, meu nome é <strong>Bruna Lopes</strong>.
-            </p>
-            <p>Sou desenvolvedora Front-end.</p>
-          </>
-        ) : (
-          <>
-            <p>
-              Hello, my name is <strong>Bruna Lopes</strong>.
-            </p>
-            <p>I'm a Front-end Developer</p>
-          </>
-        )}
+        <>
+          <p>
+            {Textos[stateIdioma.idioma].ola}
+            <strong>Bruna Lopes</strong>.
+          </p>
+          <p> {Textos[stateIdioma.idioma].dev}</p>
+        </>
 
         <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
           <FaLinkedinIn style={{ fontSize: '30' }} />

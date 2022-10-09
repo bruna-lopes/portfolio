@@ -1,8 +1,8 @@
 import Enum from './enum';
 
 export enum IdiomasEnum {
-    Portugues = 'pt-br',
-    Ingles = 'en-us'
+  Portugues = 'portugues',
+  Ingles = 'ingles',
 }
 
 export const listaIdiomas: Enum[] = [

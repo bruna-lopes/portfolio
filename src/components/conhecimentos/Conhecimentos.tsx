@@ -1,30 +1,19 @@
 import { ReactElement } from 'react';
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
-import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { Card } from './Card';
 import * as S from './style';
 import FreeMarkerIcon from '../../assets/freeMarkerIcon.png';
+import { Textos } from '../../shared/textos';
 
 export const Conhecimentos = () => {
   const { stateIdioma } = useIdiomaContext();
 
   return (
     <S.ConhecimentosContainer>
-      <S.Titulo>
-        {stateIdioma.idioma === IdiomasEnum.Portugues ? (
-          <>Conhecimentos</>
-        ) : (
-          <>Knowledge</>
-        )}
-      </S.Titulo>
+      <S.Titulo>{Textos[stateIdioma.idioma].conhecimentos}</S.Titulo>
       <S.CardContainer>
         {conhecimentos.map((item, index) => (
-          <Card
-            key={index}
-            icone={item.icone}
-            titulo={item.titulo}
-            idioma={stateIdioma.idioma}
-          />
+          <Card key={index} icone={item.icone} titulo={item.titulo} />
         ))}
       </S.CardContainer>
     </S.ConhecimentosContainer>

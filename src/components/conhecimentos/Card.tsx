@@ -5,10 +5,9 @@ import * as S from './style';
 type CardProps = {
   titulo: string;
   icone: ReactElement;
-  idioma: string;
 };
 
-export const Card = ({ titulo, icone, idioma }: CardProps) => {
+export const Card = ({ titulo, icone }: CardProps) => {
   const [widthCard, setWidthCard] = useState<number | undefined>(adjustComponent(130));
   const [heightCard, setHeightCard] = useState<number | undefined>(adjustComponent(130));
 
