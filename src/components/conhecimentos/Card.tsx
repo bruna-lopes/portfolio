@@ -7,11 +7,10 @@ type CardProps = {
   titulo: string;
   anosExperiencia: number;
   icone: ReactElement;
-  dark: string;
   idioma: string;
 };
 
-export const Card = ({ titulo, anosExperiencia, icone, dark, idioma }: CardProps) => {
+export const Card = ({ titulo, anosExperiencia, icone, idioma }: CardProps) => {
   const [widthCard, setWidthCard] = useState<number | undefined>(adjustComponent(130));
   const [heightCard, setHeightCard] = useState<number | undefined>(adjustComponent(130));
 
@@ -21,10 +20,7 @@ export const Card = ({ titulo, anosExperiencia, icone, dark, idioma }: CardProps
   });
 
   return (
-    <S.StyledCard
-      dark={dark}
-      width={widthCard?.toString()}
-      height={heightCard?.toString()}>
+    <S.StyledCard width={widthCard?.toString()} height={heightCard?.toString()}>
       {icone}
       <h1> {titulo}</h1>
       {idioma === IdiomasEnum.Portugues ? (

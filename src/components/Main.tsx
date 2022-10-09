@@ -5,18 +5,22 @@ import { Menu } from './menu/Menu';
 import { SobreMim } from './sobreMim/SobreMim';
 import { Conhecimentos } from './conhecimentos/Conhecimentos';
 import { useDarkModeContext } from '../context/darkMode/darkModeContext';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../shared/theme';
 
 const Main = () => {
   const { state } = useDarkModeContext();
 
   return (
-    <S.MainContainer dark={state.darkMode}>
-      <Menu />
-      <Introducao />
-      <SobreMim />
-      <Conhecimentos />
-      <Rodape />
-    </S.MainContainer>
+    <ThemeProvider theme={state.darkMode ? theme.dark : theme.light}>
+      <S.MainContainer dark={state.darkMode}>
+        <Menu />
+        <Introducao />
+        <SobreMim />
+        <Conhecimentos />
+        <Rodape />
+      </S.MainContainer>
+    </ThemeProvider>
   );
 };
 

@@ -6,7 +6,6 @@ import { Colors } from '../../../shared/colors';
 import { Media } from '../../../shared/media';
 
 type Props = {
-  dark: string;
   width?: string;
   height?: string;
 };
@@ -19,10 +18,7 @@ export const ConhecimentosContainer = styled.div<Props>`
   align-items: center;
   flex-direction: column;
 
-  ${({ dark }) =>
-    dark === 'true'
-      ? `background-color: ${Colors.whiteOverlay3};`
-      : `background-color: ${Colors.blackOverlay};`}
+  color: ${(props) => props.theme.conhecimentosContainerBackground};
 
   @media ${Media.maxWidth.sm} {
     min-height: 80vh;
@@ -43,6 +39,7 @@ export const CardContainer = styled.div`
 export const Titulo = styled.div<Props>`
   font-size: 40px;
   font-weight: 700;
+  color: ${(props) => props.theme.tituloConhecimentos};
 
   @media ${Media.maxWidth.md} {
     font-size: 35px;
@@ -50,9 +47,6 @@ export const Titulo = styled.div<Props>`
   @media ${Media.maxWidth.ms} {
     font-size: 30px;
   }
-
-  ${({ dark }) =>
-    dark === 'true' ? `color: ${Colors.pink1};` : `color: ${Colors.pink2};`}
 `;
 
 export const StyledCard = styled(Card)<Props>`
@@ -74,16 +68,14 @@ export const StyledCard = styled(Card)<Props>`
     backdrop-filter: blur(11.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-
-    ${({ dark }) =>
-      dark === 'true'
-        ? `background: ${Colors.blackOverlay2}; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);`
-        : `background: ${Colors.whiteOverlay2}; box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.3);`}
+    background: ${(props) => props.theme.cardBackground};
+    box-shadow: 0 8px 32px 0 ${(props) => props.theme.boxShadowCard};
   }
 
   & h1 {
     text-align: center;
     font-size: 16px;
+    color: ${(props) => props.theme.tituloCard};
 
     @media ${Media.maxWidth.md} {
       font-size: 14px;
@@ -91,14 +83,12 @@ export const StyledCard = styled(Card)<Props>`
     @media ${Media.maxWidth.ms} {
       font-size: 12px;
     }
-
-    ${({ dark }) =>
-      dark === 'true' ? `color: ${Colors.hoverPinkDark};` : `color: ${Colors.pink3};`}
   }
 
   & p {
     text-align: center;
     font-size: 14px;
+    color: ${(props) => props.theme.textoCard};
 
     @media ${Media.maxWidth.md} {
       font-size: 12px;
@@ -106,9 +96,6 @@ export const StyledCard = styled(Card)<Props>`
     @media ${Media.maxWidth.ms} {
       font-size: 10px;
     }
-
-    ${({ dark }) =>
-      dark === 'true' ? `color: ${Colors.fontColorDark};` : `color: ${Colors.fontColor};`}
   }
 `;
 
