@@ -33,7 +33,7 @@ export const calcularIdade = () => {
   return anoAtual - 1992;
 };
 
-export const calcularExpeciencia = (anoComeco: number) => {
+export const calcularExperiencia = (anoComeco: number) => {
   const dataHoje = new Date();
   const anoAtual: number = parseInt(dataHoje.getFullYear().toString());
 
@@ -41,10 +41,5 @@ export const calcularExpeciencia = (anoComeco: number) => {
 };
 
 export const parseBool = (dadoString: string) => {
-  if (dadoString === 'true') return true;
-  if (dadoString === 'false') {
-    return false;
-  } else {
-    return false;
-  }
+  return dadoString === 'true';
 };

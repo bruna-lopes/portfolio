@@ -1,23 +1,14 @@
 import { Colors } from '../../../shared/colors';
-import Foto from '../../../assets/FotoBruna.jpeg';
 import { Media } from '../../../shared/media';
 import styled from 'styled-components';
 
-type Props = {
-  dark: string;
-};
-
-export const SobreMimContainer = styled.div<Props>`
+export const SobreMimContainer = styled.div`
   height: 85vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
-  ${({ dark }) =>
-    dark === 'true'
-      ? `background-color: ${Colors.whiteOverlay3};`
-      : `background-color: ${Colors.blackOverlay};`}
+  background-color: ${(props) => props.theme.backgroundOverlay};
 
   @media ${Media.maxWidth.sm} {
     flex-direction: column;
@@ -25,19 +16,15 @@ export const SobreMimContainer = styled.div<Props>`
   }
 `;
 
-export const Fotodiv = styled.div<Props>`
-  background: url(${Foto});
+export const Fotodiv = styled.div`
+  background: url(${(props) => props.theme.foto});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   width: 250px;
   height: 250px;
   border-radius: 100%;
-
-  ${({ dark }) =>
-    dark === 'true'
-      ? `border: 8px solid ${Colors.pink1};`
-      : `border: 8px solid ${Colors.white};`}
+  border: 8px solid ${(props) => props.theme.fotoBorder};
 
   @media ${Media.maxWidth.md} {
     width: 200px;
@@ -49,7 +36,7 @@ export const Fotodiv = styled.div<Props>`
   }
 `;
 
-export const TextoContainer = styled.div<Props>`
+export const TextoContainer = styled.div`
   width: 50%;
 
   & h1 {
@@ -57,9 +44,7 @@ export const TextoContainer = styled.div<Props>`
     font-size: 25px;
     color: ${Colors.white};
     margin-bottom: 15px;
-
-    ${({ dark }) =>
-      dark === 'true' ? `color: ${Colors.pink1};` : `color: ${Colors.white};`}
+    color: ${(props) => props.theme.sobreMimTitulo};
 
     @media ${Media.maxWidth.md} {
       font-size: 20px;

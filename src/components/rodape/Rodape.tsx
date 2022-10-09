@@ -1,11 +1,11 @@
 import { ReactElement } from 'react';
-import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { Constants } from '../../shared/constants';
 import * as S from './style';
+import { FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa';
+import { FiGithub, FiInstagram } from 'react-icons/fi';
+import { AiOutlineWhatsApp } from 'react-icons/ai';
 
 export const Rodape = () => {
-  const { state } = useDarkModeContext();
-
   const iconesRodape: LinkProps[] = [
     { href: Constants.urlLinkedin, tipo: 'linkedin' },
     { href: Constants.urlGithub, tipo: 'github' },
@@ -15,7 +15,7 @@ export const Rodape = () => {
   ];
 
   return (
-    <S.RodapeContainer dark={state.darkMode.toString()}>
+    <S.RodapeContainer>
       {iconesRodape.map((item, index) => (
         <LinkComponent key={index} href={item.href} tipo={item.tipo} />
       ))}
@@ -30,23 +30,22 @@ type LinkProps = {
 
 const LinkComponent = ({ href, tipo }: LinkProps) => {
   let icone: ReactElement = <></>;
-  const { state } = useDarkModeContext();
 
   switch (tipo) {
     case 'linkedin':
-      icone = <S.IconeLinkedin dark={state.darkMode.toString()} />;
+      icone = <FaLinkedinIn className="icon" />;
       break;
     case 'github':
-      icone = <S.IconeGitHub dark={state.darkMode.toString()} />;
+      icone = <FiGithub className="icon" />;
       break;
     case 'instagram':
-      icone = <S.IconeInstagram dark={state.darkMode.toString()} />;
+      icone = <FiInstagram className="icon" />;
       break;
     case 'whatsapp':
-      icone = <S.IconeWhatsApp dark={state.darkMode.toString()} />;
+      icone = <AiOutlineWhatsApp className="icon" />;
       break;
     case 'telegram':
-      icone = <S.IconeTelegram dark={state.darkMode.toString()} />;
+      icone = <FaTelegramPlane className="icon" />;
       break;
   }
 

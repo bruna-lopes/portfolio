@@ -1,18 +1,15 @@
-import React from 'react';
-import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
 import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { calcularIdade } from '../../shared/functions';
 import * as S from './style';
 
 export const SobreMim = () => {
-  const { state } = useDarkModeContext();
   const { stateIdioma } = useIdiomaContext();
 
   return (
-    <S.SobreMimContainer dark={state.darkMode.toString()}>
-      <S.Fotodiv dark={state.darkMode.toString()} />
-      <S.TextoContainer dark={state.darkMode.toString()}>
+    <S.SobreMimContainer>
+      <S.Fotodiv />
+      <S.TextoContainer>
         {stateIdioma.idioma === IdiomasEnum.Portugues ? (
           <>
             <h1>Sobre mim</h1>

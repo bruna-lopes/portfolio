@@ -6,23 +6,18 @@ import { Colors } from '../../../shared/colors';
 import { Media } from '../../../shared/media';
 
 type Props = {
-  dark: string;
   width?: string;
   height?: string;
 };
 
 export const ConhecimentosContainer = styled.div<Props>`
   min-height: 85vh;
-  background-color: ${Colors.blackOverlay};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  ${({ dark }) =>
-    dark === 'true'
-      ? `background-color: ${Colors.whiteOverlay3};`
-      : `background-color: ${Colors.blackOverlay};`}
+  background-color: ${(props) => props.theme.backgroundOverlay};
+  color: ${(props) => props.theme.conhecimentosContainerBackground};
 
   @media ${Media.maxWidth.sm} {
     min-height: 80vh;
@@ -43,6 +38,7 @@ export const CardContainer = styled.div`
 export const Titulo = styled.div<Props>`
   font-size: 40px;
   font-weight: 700;
+  color: ${(props) => props.theme.tituloConhecimentos};
 
   @media ${Media.maxWidth.md} {
     font-size: 35px;
@@ -50,9 +46,6 @@ export const Titulo = styled.div<Props>`
   @media ${Media.maxWidth.ms} {
     font-size: 30px;
   }
-
-  ${({ dark }) =>
-    dark === 'true' ? `color: ${Colors.pink1};` : `color: ${Colors.pink2};`}
 `;
 
 export const StyledCard = styled(Card)<Props>`
@@ -74,16 +67,14 @@ export const StyledCard = styled(Card)<Props>`
     backdrop-filter: blur(11.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-
-    ${({ dark }) =>
-      dark === 'true'
-        ? `background: ${Colors.blackOverlay2}; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);`
-        : `background: ${Colors.whiteOverlay2}; box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.3);`}
+    background: ${(props) => props.theme.cardBackground};
+    box-shadow: 0 8px 32px 0 ${(props) => props.theme.boxShadowCard};
   }
 
   & h1 {
     text-align: center;
-    font-size: 16px;
+    font-size: 18px;
+    color: ${(props) => props.theme.tituloCard};
 
     @media ${Media.maxWidth.md} {
       font-size: 14px;
@@ -91,29 +82,11 @@ export const StyledCard = styled(Card)<Props>`
     @media ${Media.maxWidth.ms} {
       font-size: 12px;
     }
-
-    ${({ dark }) =>
-      dark === 'true' ? `color: ${Colors.hoverPinkDark};` : `color: ${Colors.pink3};`}
-  }
-
-  & p {
-    text-align: center;
-    font-size: 14px;
-
-    @media ${Media.maxWidth.md} {
-      font-size: 12px;
-    }
-    @media ${Media.maxWidth.ms} {
-      font-size: 10px;
-    }
-
-    ${({ dark }) =>
-      dark === 'true' ? `color: ${Colors.fontColorDark};` : `color: ${Colors.fontColor};`}
   }
 `;
 
 export const IconeHTML = styled(DiHtml5)`
-  font-size: 38px;
+  font-size: 45px;
   color: ${Colors.orange};
 
   @media ${Media.maxWidth.md} {
@@ -125,7 +98,7 @@ export const IconeHTML = styled(DiHtml5)`
 `;
 
 export const IconeTS = styled(SiTypescript)`
-  font-size: 35px;
+  font-size: 40px;
   color: ${Colors.blue5};
 
   @media ${Media.maxWidth.md} {
@@ -137,7 +110,7 @@ export const IconeTS = styled(SiTypescript)`
 `;
 
 export const IconeCSS = styled(DiCss3)`
-  font-size: 38px;
+  font-size: 45px;
   color: ${Colors.blue4};
 
   @media ${Media.maxWidth.md} {
@@ -149,7 +122,7 @@ export const IconeCSS = styled(DiCss3)`
 `;
 
 export const IconeJS = styled(DiJsBadge)`
-  font-size: 35px;
+  font-size: 40px;
   color: ${Colors.yellow};
 
   @media ${Media.maxWidth.md} {
@@ -161,7 +134,7 @@ export const IconeJS = styled(DiJsBadge)`
 `;
 
 export const IconeReact = styled(DiReact)`
-  font-size: 40px;
+  font-size: 50px;
   color: ${Colors.blue6};
 
   @media ${Media.maxWidth.md} {
@@ -169,5 +142,24 @@ export const IconeReact = styled(DiReact)`
   }
   @media ${Media.maxWidth.ms} {
     font-size: 30px;
+  }
+`;
+
+export const IconeFreeMarker = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media ${Media.maxWidth.md} {
+    font-size: 35px;
+  }
+  @media ${Media.maxWidth.ms} {
+    font-size: 30px;
+  }
+
+  img {
+    width: 58px;
+    height: 35px;
+    margin: 0;
   }
 `;

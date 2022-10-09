@@ -35,7 +35,7 @@ const Introducao = () => {
   });
 
   return (
-    <S.IntroducaoContainer dark={state.darkMode.toString()}>
+    <S.IntroducaoContainer>
       <S.TextoContainer>
         {stateIdioma.idioma === IdiomasEnum.Portugues ? (
           <>
@@ -53,10 +53,7 @@ const Introducao = () => {
           </>
         )}
 
-        <S.BotaoLinkedin
-          dark={state.darkMode.toString()}
-          variant="contained"
-          href={Constants.urlLinkedin}>
+        <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
           <FaLinkedinIn style={{ fontSize: '30' }} />
         </S.BotaoLinkedin>
       </S.TextoContainer>

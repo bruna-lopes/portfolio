@@ -1,12 +1,8 @@
 import { AppBar } from '@material-ui/core';
 import styled from 'styled-components';
-import { Colors } from '../../../shared/colors';
 import { Media } from '../../../shared/media';
 
-type MainProps = {
-  dark: string;
-};
-export const MenuContainer = styled(AppBar)<MainProps>`
+export const MenuContainer = styled(AppBar)`
   &.MuiAppBar-root {
     display: flex;
     flex-direction: row;
@@ -21,10 +17,8 @@ export const MenuContainer = styled(AppBar)<MainProps>`
       height: 10vh;
     }
 
-    ${({ dark }) =>
-      dark === 'true'
-        ? `background-color: ${Colors.blackOverlay2}; color: ${Colors.fontColorDark};`
-        : `background-color: ${Colors.whiteOverlay}; color: ${Colors.fontColor};`}
+    background: ${(props) => props.theme.menuBackgroundColor};
+    color: ${(props) => props.theme.menuTextColor};
   }
 `;
 
@@ -32,7 +26,7 @@ export const AnimationContainer = styled.div`
   margin-right: 20px;
 `;
 
-export const OpcoesContainer = styled.div<MainProps>`
+export const OpcoesContainer = styled.div`
   width: 60%;
   display: flex;
   align-items: baseline;
@@ -59,10 +53,7 @@ export const OpcoesContainer = styled.div<MainProps>`
     }
 
     :hover {
-      ${({ dark }) =>
-        dark === 'true'
-          ? `color: ${Colors.hoverPinkDark};`
-          : `color: ${Colors.hoverPink};`}
+      color: ${(props) => props.theme.opcoesContainerHoverColor};
     }
 
     @media ${Media.maxWidth.sm} {
@@ -84,10 +75,7 @@ export const OpcoesContainer = styled.div<MainProps>`
     }
 
     :hover {
-      ${({ dark }) =>
-        dark === 'true'
-          ? `color: ${Colors.hoverPinkDark};`
-          : `color: ${Colors.hoverPink};`}
+      color: ${(props) => props.theme.opcoesContainerHoverColor};
     }
   }
 `;

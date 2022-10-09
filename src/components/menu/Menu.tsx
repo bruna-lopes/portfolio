@@ -119,8 +119,8 @@ export const Menu = () => {
     }
   };
   return (
-    <S.MenuContainer dark={state.darkMode.toString()}>
-      <S.OpcoesContainer dark={state.darkMode.toString()}>
+    <S.MenuContainer>
+      <S.OpcoesContainer>
         <strong onClick={() => toggleDarkTheme()}>
           {state.darkMode ? <FiSun /> : <FiMoon />}
         </strong>
