@@ -3,7 +3,6 @@ import { Constants } from '../../shared/constants';
 import * as S from './style';
 import { FaLinkedinIn, FaTelegramPlane } from 'react-icons/fa';
 import { FiGithub, FiInstagram } from 'react-icons/fi';
-import { AiOutlineWhatsApp } from 'react-icons/ai';
 
 export const Rodape = () => {
   const iconesRodape: LinkProps[] = [
