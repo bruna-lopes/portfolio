@@ -10,7 +10,6 @@ export const Rodape = () => {
     { href: Constants.urlLinkedin, tipo: 'linkedin' },
     { href: Constants.urlGithub, tipo: 'github' },
     { href: Constants.urlInstagram, tipo: 'instagram' },
-    { href: Constants.urlWhatsApp, tipo: 'whatsapp' },
     { href: Constants.urlTelegram, tipo: 'telegram' },
   ];
 
@@ -40,9 +39,6 @@ const LinkComponent = ({ href, tipo }: LinkProps) => {
       break;
     case 'instagram':
       icone = <FiInstagram className="icon" />;
-      break;
-    case 'whatsapp':
-      icone = <AiOutlineWhatsApp className="icon" />;
       break;
     case 'telegram':
       icone = <FaTelegramPlane className="icon" />;
