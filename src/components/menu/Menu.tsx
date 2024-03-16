@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import Lottie from 'react-lottie';
@@ -12,6 +13,7 @@ import { useIdiomaContext } from '../../context/idioma/idiomaContext';
 import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { adjustComponent, parseBool } from '../../shared/functions';
 import { Textos } from '../../shared/textos';
+import { adjustComponent, parseBool } from '../../shared/functions';
 import * as S from './style';
 
 export const Menu = () => {
