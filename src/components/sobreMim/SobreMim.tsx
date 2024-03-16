@@ -1,23 +1,25 @@
-import React from 'react';
-import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { useIdiomaContext } from '../../context/idioma/idiomaContext';
 import { calcularIdade } from '../../shared/functions';
+import { Textos } from '../../shared/textos';
 import * as S from './style';
 
 export const SobreMim = () => {
-  const { state } = useDarkModeContext();
+  const { stateIdioma } = useIdiomaContext();
 
   return (
-    <S.SobreMimContainer dark={state.darkMode.toString()}>
-      <S.Fotodiv dark={state.darkMode.toString()} />
-      <S.TextoContainer dark={state.darkMode.toString()}>
-        <h1>Sobre mim</h1>
-        <p>
-          Meu nome é <strong>Bruna Lopes dos Santos</strong>, tenho {calcularIdade()} anos
-          e moro atualmente na cidade de Vila Velha - ES.
-        </p>
-        <p>
-          Eu sou uma dev que assim como outras pessoas de minha geração, escolheu a profissão por amor, mesmo depois de quase 10 anos no mercado de trabalho, atuando em outras áreas.
-        </p>
+    <S.SobreMimContainer>
+      <S.Fotodiv />
+      <S.TextoContainer>
+        <>
+          <h1>{Textos[stateIdioma.idioma].sobreMim}</h1>
+          <p>
+            {Textos[stateIdioma.idioma].meuNome}
+            <strong>Bruna Lopes dos Santos</strong>, {Textos[stateIdioma.idioma].tenho}
+            {calcularIdade()}
+            {Textos[stateIdioma.idioma].moro}
+          </p>
+          <p>{Textos[stateIdioma.idioma].texto}</p>
+        </>
       </S.TextoContainer>
     </S.SobreMimContainer>
   );

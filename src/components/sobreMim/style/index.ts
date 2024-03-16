@@ -1,24 +1,14 @@
-import styled from '@emotion/styled';
 import { Colors } from '../../../shared/colors';
-import Foto from '../../../assets/FotoBruna.jpeg';
-import { adjustComponent, adjustFont } from '../../../shared/functions';
 import { Media } from '../../../shared/media';
+import styled from 'styled-components';
 
-type Props = {
-  dark: string;
-};
-
-export const SobreMimContainer = styled.div<Props>`
+export const SobreMimContainer = styled.div`
   height: 85vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
-  ${({ dark }) =>
-    dark === 'true'
-      ? `background-color: ${Colors.whiteOverlay3};`
-      : `background-color: ${Colors.blackOverlay};`}
+  background-color: ${(props) => props.theme.backgroundOverlay};
 
   @media ${Media.maxWidth.sm} {
     flex-direction: column;
@@ -26,37 +16,55 @@ export const SobreMimContainer = styled.div<Props>`
   }
 `;
 
-export const Fotodiv = styled.div<Props>`
-  background: url(${Foto});
+export const Fotodiv = styled.div`
+  background: url(${(props) => props.theme.foto});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  width: ${adjustComponent(250)}px;
-  height: ${adjustComponent(250)}px;
-  border-radius: 200px;
+  width: 250px;
+  height: 250px;
+  border-radius: 100%;
+  border: 8px solid ${(props) => props.theme.fotoBorder};
 
-  ${({ dark }) =>
-    dark === 'true'
-      ? `border: 8px solid ${Colors.pink1};`
-      : `border: 8px solid ${Colors.white};`}
+  @media ${Media.maxWidth.md} {
+    width: 200px;
+    height: 200px;
+  }
+  @media ${Media.maxWidth.ms} {
+    width: 150px;
+    height: 150px;
+  }
 `;
 
-export const TextoContainer = styled.div<Props>`
+export const TextoContainer = styled.div`
   width: 50%;
 
   & h1 {
     font-weight: 700;
-    font-size: ${adjustFont(25)}px;
+    font-size: 25px;
     color: ${Colors.white};
     margin-bottom: 15px;
+    color: ${(props) => props.theme.sobreMimTitulo};
 
-    ${({ dark }) =>
-      dark === 'true' ? `color: ${Colors.pink1};` : `color: ${Colors.white};`}
+    @media ${Media.maxWidth.md} {
+      font-size: 20px;
+    }
+    @media ${Media.maxWidth.ms} {
+      font-size: 18px;
+    }
   }
 
   & p {
-    font-size: ${adjustFont(20)}px;
+    font-size: 20px;
     margin-bottom: 10px;
+
+    @media ${Media.maxWidth.md} {
+      font-size: 16px;
+    }
+    @media ${Media.maxWidth.ms} {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
   }
 
   & strong {

@@ -1,14 +1,25 @@
+import { useState } from 'react';
+import { FaLinkedinIn } from 'react-icons/fa';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo.json';
+import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
+import { useIdiomaContext } from '../../context/idioma/idiomaContext';
 import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
+import { Textos } from '../../shared/textos';
 import * as S from './style';
-import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
-import { FaLinkedinIn } from 'react-icons/fa';
 
 const Introducao = () => {
   const { state } = useDarkModeContext();
+  const { stateIdioma } = useIdiomaContext();
+  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(
+    adjustComponent(500),
+  );
+  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(
+    adjustComponent(400),
+  );
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -18,26 +29,32 @@ const Introducao = () => {
     },
   };
 
-  return (
-    <S.IntroducaoContainer dark={state.darkMode.toString()}>
-      <S.TextoContainer>
-        <p>
-          Olá, meu nome é <strong>Bruna Lopes</strong>.
-        </p>
-        <p>Sou desenvolvedora Front-end.</p>
+  window.addEventListener('resize', () => {
+    setWidthAnimation(adjustComponent(500));
+    setHeightAnimation(adjustComponent(400));
+  });
 
-        <S.BotaoLinkedin
-          dark={state.darkMode.toString()}
-          variant="contained"
-          href={Constants.urlLinkedin}>
+  return (
+    <S.IntroducaoContainer>
+      <S.TextoContainer>
+        <>
+          <p>
+            {Textos[stateIdioma.idioma].ola}
+            <strong>Bruna Lopes</strong>.
+          </p>
+          <p> {Textos[stateIdioma.idioma].dev}</p>
+        </>
+
+        <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
           <FaLinkedinIn style={{ fontSize: '30' }} />
         </S.BotaoLinkedin>
       </S.TextoContainer>
 
       <Lottie
+        style={{ margin: '2px' }}
         options={defaultOptions}
-        height={adjustComponent(400)}
-        width={adjustComponent(500)}
+        height={heightAnimation}
+        width={widthAnimation}
       />
     </S.IntroducaoContainer>
   );

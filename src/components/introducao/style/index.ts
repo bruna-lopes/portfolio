@@ -1,27 +1,18 @@
-import styled from '@emotion/styled';
 import { Button } from '@material-ui/core';
-import { Colors } from '../../../shared/colors';
-import { adjustFont } from '../../../shared/functions';
+import styled from 'styled-components';
 import { Media } from '../../../shared/media';
 
-type Props = {
-  dark: string;
-};
-
-export const IntroducaoContainer = styled.div<Props>`
+export const IntroducaoContainer = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-
-  ${({ dark }) =>
-    dark === 'true'
-      ? `background-color: ${Colors.whiteOverlay3};`
-      : `background-color: ${Colors.blackOverlay};`}
+  background-color: ${(props) => props.theme.backgroundOverlay};
 
   @media ${Media.maxWidth.sm} {
     height: 100vh;
     flex-direction: column;
     justify-content: center;
+    padding-top: 10vh;
   }
 `;
 
@@ -31,7 +22,14 @@ export const TextoContainer = styled.div`
   text-align: center;
 
   & p {
-    font-size: ${adjustFont(35)}px;
+    font-size: 35px;
+
+    @media ${Media.maxWidth.md} {
+      font-size: 30px;
+    }
+    @media ${Media.maxWidth.ms} {
+      font-size: 25px;
+    }
   }
 
   & strong {
@@ -43,21 +41,15 @@ export const TextoContainer = styled.div`
   }
 `;
 
-export const BotaoLinkedin = styled(Button)<Props>`
+export const BotaoLinkedin = styled(Button)`
   &.MuiButton-root {
     margin: 30px;
     text-transform: inherit;
-
-    ${({ dark }) =>
-      dark === 'true'
-        ? `background-color: ${Colors.fontColorDark}; color: ${Colors.fontColor};`
-        : `background-color: ${Colors.fontColor}; color: ${Colors.whiteOverlay};`}
+    background-color: ${(props) => props.theme.botaoInBackground};
+    color: ${(props) => props.theme.botaoInColor};
 
     :hover {
-      ${({ dark }) =>
-        dark === 'true'
-          ? `background-color: ${Colors.hoverPinkDark}; `
-          : `background-color: ${Colors.hoverPink}; `}
+      background-color: ${(props) => props.theme.botaoInBackgroundHover};
     }
   }
 `;
