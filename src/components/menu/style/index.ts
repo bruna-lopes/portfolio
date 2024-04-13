@@ -1,82 +1,148 @@
-import { AppBar } from '@material-ui/core';
 import styled from 'styled-components';
 import { Media } from '../../../shared/media';
 
-export const MenuContainer = styled(AppBar)`
-  &.MuiAppBar-root {
+export const MenuContainer = styled.div`
+  background: transparent;
+  flex: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  .menu-animacao {
+    position: fixed;
+    border-radius: 100%;
+    height: 32px;
+    width: 40px;
+    cursor: pointer;
+    margin: 40px;
+  }
+
+  .menu-animacao span,
+  .menu-animacao span::before,
+  .menu-animacao span::after {
+    background: ${(props) => props.theme.menuTextColor};
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    margin-top: 13px;
+
+    -webkit-transition: 0.3s ease-in-out 0.3s;
+    -moz-transition: 0.3s ease-in-out 0.3s;
+    -o-transition: 0.3s ease-in-out 0.3s;
+    transition: 0.3s ease-in-out 0.3s;
+  }
+
+  .menu-animacao span::before {
+    margin-top: -12px;
+
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+
+  .menu-animacao span::after {
+    margin-top: 12px;
+
+    -webkit-transition: 0.3s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+
+  .menu-animacao.active span {
+    background: transparent;
+
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  .menu-animacao.active span::before {
+    margin-top: 0;
+
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    -o-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+  }
+
+  .menu-animacao.active span::after {
+    margin-top: 0;
+
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+
+    -webkit-transition-delay: 0.6s;
+    -moz-transition-delay: 0.6s;
+    -o-transition-delay: 0.6s;
+    transition-delay: 0.5s;
+  }
+
+  .icones {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    padding: 40px;
+    width: 10%;
     justify-content: space-between;
-    width: 100vw;
-    height: 15vh;
-    position: fixed;
-    flex: 1;
+    font-size: 1.5rem;
 
-    @media ${Media.maxWidth.sm} {
-      height: 10vh;
+    span {
+      cursor: pointer;
     }
-
-    background: ${(props) => props.theme.menuBackgroundColor};
-    color: ${(props) => props.theme.menuTextColor};
   }
-`;
-
-export const AnimationContainer = styled.div`
-  margin-right: 20px;
 `;
 
 export const OpcoesContainer = styled.div`
-  width: 60%;
-  display: flex;
-  align-items: baseline;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 5px;
-
-  @media ${Media.maxWidth.md} {
-    width: 70%;
-    margin: 4vw;
-    justify-content: flex-start;
+  &.menu-fechado {
+    width: 0;
+    height: 0;
+    padding: 0;
   }
 
-  & span {
-    cursor: pointer;
-    margin: 1vw;
-    font-size: 20px;
+  /* falta responsividade */
+  &.menu-aberto {
+    width: calc(30vw - 40px);
+    height: calc(16vh - 80px);
+    padding: 80px 0 40px 40px;
+  }
+  border-bottom-right-radius: 80%;
+  transition-property: width, height;
+  transition-duration: 0.7s;
+  background-color: ${(props) => props.theme.menuBackgroundColor};
 
-    @media ${Media.maxWidth.md} {
-      font-size: 18px;
-    }
-    @media ${Media.maxWidth.ms} {
-      font-size: 16px;
-    }
+  .textos-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition-property: color;
+    transition-duration: 0.7s;
+    justify-content: center;
 
-    :hover {
-      color: ${(props) => props.theme.opcoesContainerHoverColor};
-    }
-
-    @media ${Media.maxWidth.sm} {
-      display: none;
+    span {
+      cursor: pointer;
     }
   }
 
-  & strong {
-    cursor: pointer;
-    margin: 0.5vw;
-    font-size: 25px;
-    padding-left: 0.3vw;
-
-    @media ${Media.maxWidth.md} {
-      font-size: 20px;
-    }
-    @media ${Media.maxWidth.ms} {
-      font-size: 18px;
-    }
-
-    :hover {
-      color: ${(props) => props.theme.opcoesContainerHoverColor};
-    }
+  .--fechado {
+    color: transparent;
   }
 `;
 

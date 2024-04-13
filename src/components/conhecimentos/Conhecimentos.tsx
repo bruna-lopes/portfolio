@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
 import { Card } from './Card';
 import * as S from './style';
-import FreeMarkerIcon from '../../assets/freeMarkerIcon.png';
 import { Textos } from '../../shared/textos';
 
 export const Conhecimentos = () => {
@@ -46,13 +45,5 @@ const conhecimentos: IConhecimentos[] = [
   {
     titulo: 'React Native',
     icone: <S.IconeReact />,
-  },
-  {
-    titulo: 'FreeMarker',
-    icone: (
-      <S.IconeFreeMarker>
-        <img src={FreeMarkerIcon} alt="freemarker icon" />
-      </S.IconeFreeMarker>
-    ),
   },
 ];
