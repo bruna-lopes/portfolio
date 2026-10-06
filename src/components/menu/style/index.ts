@@ -116,14 +116,13 @@ export const OpcoesContainer = styled.div`
     padding: 0;
   }
 
-  /* falta responsividade */
   &.menu-aberto {
-    width: calc(30vw - 40px);
-    height: calc(16vh - 80px);
-    padding: 80px 0 40px 40px;
+    width: calc-size(fit-content, size + 80px);
+    height: calc-size(fit-content, size + 0px);
+    padding: 100px 0 40px 40px;
   }
   border-bottom-right-radius: 80%;
-  transition-property: width, height;
+  transition-property: width, height, padding;
   transition-duration: 0.7s;
   background-color: ${(props) => props.theme.menuBackgroundColor};
 

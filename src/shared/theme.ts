@@ -22,6 +22,7 @@ export const theme: ITheme = {
     fotoBorder: Colors.white,
     sobreMimTitulo: Colors.white,
     foto: Foto,
+    javaIconColor: Colors.black,
   },
   dark: {
     menuBackgroundColor: Colors.blackOverlay2,
@@ -41,5 +42,6 @@ export const theme: ITheme = {
     fotoBorder: Colors.pink1,
     sobreMimTitulo: Colors.pink1,
     foto: FotoDarkMode,
+    javaIconColor: Colors.white,
   },
 };

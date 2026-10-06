@@ -21,4 +21,5 @@ export interface ColorsTheme {
   fotoBorder: string;
   sobreMimTitulo: string;
   foto: string;
+  javaIconColor: string;
 }

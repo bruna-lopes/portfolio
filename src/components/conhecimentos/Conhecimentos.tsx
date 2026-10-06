@@ -46,4 +46,12 @@ const conhecimentos: IConhecimentos[] = [
     titulo: 'React Native',
     icone: <S.IconeReact />,
   },
+  {
+    titulo: 'Java',
+    icone: <S.IconeJava />,
+  },
+  {
+    titulo: 'Node.js',
+    icone: <S.IconeNode />,
+  },
 ];

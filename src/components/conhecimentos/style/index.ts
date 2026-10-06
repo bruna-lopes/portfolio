@@ -1,5 +1,5 @@
 import { Card } from '@material-ui/core';
-import { DiCss3, DiHtml5, DiJsBadge, DiReact } from 'react-icons/di';
+import { DiCss3, DiHtml5, DiJava, DiJsBadge, DiNodejs, DiReact } from 'react-icons/di';
 import { SiTypescript } from 'react-icons/si';
 import styled from 'styled-components';
 import { Colors } from '../../../shared/colors';
@@ -161,5 +161,29 @@ export const IconeFreeMarker = styled.div`
     width: 58px;
     height: 35px;
     margin: 0;
+  }
+`;
+
+export const IconeJava = styled(DiJava)`
+  font-size: 55px;
+  color: ${(props) => props.theme.javaIconColor};
+
+  @media ${Media.maxWidth.md} {
+    font-size: 35px;
+  }
+  @media ${Media.maxWidth.ms} {
+    font-size: 30px;
+  }
+`;
+
+export const IconeNode = styled(DiNodejs)`
+  font-size: 65px;
+  color: ${Colors.green};
+
+  @media ${Media.maxWidth.md} {
+    font-size: 35px;
+  }
+  @media ${Media.maxWidth.ms} {
+    font-size: 30px;
   }
 `;
