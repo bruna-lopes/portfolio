@@ -16,6 +16,8 @@ export const Colors = {
 
   yellow: '#f6dd02',
 
+  green: '#68A063',
+
   blackOverlay: 'rgba(0, 0, 0, 0.1)',
   blackOverlay2: 'rgba(0, 0, 0, 0.6)',
 

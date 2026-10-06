@@ -1,37 +1,21 @@
 import { useEffect, useState } from 'react';
 import { FiMoon, FiSun } from 'react-icons/fi';
-import Lottie from 'react-lottie';
 import IconeBr from '../../assets/icone-bandeira-botao-brasil.png';
 import IconeEua from '../../assets/icone-bandeira-botao-eua.png';
-import LogoAnimation from '../../assets/logo1.json';
-import LogoDarkMode from '../../assets/logoDarkMode.json';
 import { DarkModeActions } from '../../context/darkMode/darkMode.types';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { IdiomaActions } from '../../context/idioma/idioma.types';
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
 import { IdiomasEnum } from '../../models/IdiomasEnum';
-import { adjustComponent, parseBool } from '../../shared/functions';
 import { Textos } from '../../shared/textos';
+import { parseBool } from '../../shared/functions';
 import * as S from './style';
 
 export const Menu = () => {
   const { dispatch, state } = useDarkModeContext();
   const { dispatchIdioma, stateIdioma } = useIdiomaContext();
-  const [widthAnimation, setWidthAnimation] = useState<number | undefined>(
-    adjustComponent(120),
-  );
-  const [heightAnimation, setHeightAnimation] = useState<number | undefined>(
-    adjustComponent(80),
-  );
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: state.darkMode ? LogoDarkMode : LogoAnimation,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
+  const [aberto, setAberto] = useState<boolean>(false);
 
   const toggleDarkTheme = () => {
     localStorage.setItem('darkMode', JSON.stringify(!state.darkMode));
@@ -94,11 +78,6 @@ export const Menu = () => {
     // eslint-disable-next-line
   }, []);
 
-  window.addEventListener('resize', () => {
-    setWidthAnimation(adjustComponent(120));
-    setHeightAnimation(adjustComponent(80));
-  });
-
   const rollWindow = (where: string) => {
     const sobre = (window.innerHeight / 100) * 85;
     const conhecimentos = (window.innerHeight / 100) * 170;
@@ -119,39 +98,41 @@ export const Menu = () => {
         break;
     }
   };
+
   return (
     <S.MenuContainer>
-      <S.OpcoesContainer>
-        <strong onClick={() => toggleDarkTheme()}>
-          {state.darkMode ? <FiSun /> : <FiMoon />}
-        </strong>
+      <div
+        className={`menu-animacao ${aberto ? 'active' : ''}`}
+        onClick={() => setAberto(!aberto)}>
+        <span></span>
+      </div>
 
-        <strong onClick={() => toggleIdioma()}>
+      <S.OpcoesContainer className={`${aberto ? 'menu-aberto' : 'menu-fechado'}`}>
+        <div className={`textos-container ${aberto ? '' : ' --fechado'}`}>
+          <span onClick={() => rollWindow('introducao')}>
+            {Textos[stateIdioma.idioma].introducao}
+          </span>
+          <span onClick={() => rollWindow('sobre')}>
+            {Textos[stateIdioma.idioma].sobre}
+          </span>
+          <span onClick={() => rollWindow('conhecimentos')}>
+            {Textos[stateIdioma.idioma].conhecimentos}
+          </span>
+          <span onClick={() => rollWindow('contatos')}>
+            {Textos[stateIdioma.idioma].contatos}
+          </span>
+        </div>
+      </S.OpcoesContainer>
+
+      <div className="icones">
+        <span onClick={toggleDarkTheme}>{state.darkMode ? <FiSun /> : <FiMoon />}</span>
+
+        <span onClick={toggleIdioma}>
           <S.IconeImg
             src={stateIdioma.idioma === IdiomasEnum.Portugues ? IconeEua : IconeBr}
           />
-        </strong>
-
-        <span onClick={() => rollWindow('introducao')}>
-          {Textos[stateIdioma.idioma].introducao}
         </span>
-        <span onClick={() => rollWindow('sobre')}>
-          {Textos[stateIdioma.idioma].sobre}
-        </span>
-        <span onClick={() => rollWindow('conhecimentos')}>
-          {Textos[stateIdioma.idioma].conhecimentos}
-        </span>
-        <span onClick={() => rollWindow('contatos')}>
-          {Textos[stateIdioma.idioma].contatos}
-        </span>
-      </S.OpcoesContainer>
-      <S.AnimationContainer>
-        <Lottie
-          options={defaultOptions}
-          height={heightAnimation}
-          width={widthAnimation}
-        />
-      </S.AnimationContainer>
+      </div>
     </S.MenuContainer>
   );
 };
