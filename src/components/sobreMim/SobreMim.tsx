@@ -1,5 +1,4 @@
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
-import { calcularIdade } from '../../shared/functions';
 import { Textos } from '../../shared/textos';
 import * as S from './style';
 
@@ -12,13 +11,8 @@ export const SobreMim = () => {
       <S.TextoContainer>
         <>
           <h1>{Textos[stateIdioma.idioma].sobreMim}</h1>
-          <p>
-            {Textos[stateIdioma.idioma].meuNome}
-            <strong>Bruna Lopes dos Santos</strong>, {Textos[stateIdioma.idioma].tenho}
-            {calcularIdade()}
-            {Textos[stateIdioma.idioma].moro}
-          </p>
-          <p>{Textos[stateIdioma.idioma].texto}</p>
+          <p dangerouslySetInnerHTML={{ __html: Textos[stateIdioma.idioma].meusDados }} />
+          <p dangerouslySetInnerHTML={{ __html: Textos[stateIdioma.idioma].texto }} />
         </>
       </S.TextoContainer>
     </S.SobreMimContainer>

@@ -38,11 +38,11 @@ const Introducao = () => {
     <S.IntroducaoContainer>
       <S.TextoContainer>
         <>
-          <p>
-            {Textos[stateIdioma.idioma].ola}
-            <strong>Bruna Lopes</strong>.
-          </p>
-          <p> {Textos[stateIdioma.idioma].dev}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: Textos[stateIdioma.idioma].introducaoTexto,
+            }}
+          />
         </>
 
         <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>

@@ -9,6 +9,7 @@ export const MenuContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  z-index: 1000;
 
   .menu-animacao {
     position: fixed;
@@ -98,6 +99,8 @@ export const MenuContainer = styled.div`
   .icones {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    align-self: flex-start;
     padding: 40px;
     width: 10%;
     justify-content: space-between;
@@ -120,7 +123,13 @@ export const OpcoesContainer = styled.div`
     width: calc-size(fit-content, size + 80px);
     height: calc-size(fit-content, size + 0px);
     padding: 100px 0 40px 40px;
+
+    @media ${Media.maxWidth.sm} {
+      min-width: calc(25vw + 80px);
+      border-bottom-right-radius: 70%;
+    }
   }
+
   border-bottom-right-radius: 80%;
   transition-property: width, height, padding;
   transition-duration: 0.7s;
@@ -148,15 +157,14 @@ export const OpcoesContainer = styled.div`
 export const IconeImg = styled.img`
   width: 25px;
   height: 25px;
+  margin: 5px;
 
   @media ${Media.maxWidth.md} {
     width: 20px;
     height: 20px;
-    margin: 0 5px;
   }
   @media ${Media.maxWidth.ms} {
     width: 18px;
     height: 18px;
-    margin: 0 5px;
   }
 `;
