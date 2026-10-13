@@ -15,11 +15,6 @@ export const Conhecimentos = () => {
           <Card key={index} icone={item.icone} titulo={item.titulo} />
         ))}
       </S.CardContainer>
-      <a
-        href="/arquivos/Bruna_Lopes_Curriculo_PT.pdf"
-        download="Bruna_Lopes_Curriculo_PT.pdf">
-        Baixar currículo
-      </a>
     </S.ConhecimentosContainer>
   );
 };
