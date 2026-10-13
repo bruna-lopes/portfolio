@@ -5,14 +5,11 @@ export interface ITextos {
 
 export interface Textos {
   introducao: string;
+  introducaoTexto: string;
   sobre: string;
   conhecimentos: string;
   contatos: string;
-  ola: string;
-  dev: string;
   sobreMim: string;
-  meuNome: string;
-  tenho: string;
-  moro: string;
+  meusDados: string;
   texto: string;
 }

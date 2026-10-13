@@ -1,3 +1,5 @@
+const dataHoje = new Date();
+
 export const adjustComponent = (size: number) => {
   if (window.innerWidth > 1000) {
     return size;
@@ -27,14 +29,12 @@ export const adjustFont = (size: number) => {
 };
 
 export const calcularIdade = () => {
-  const dataHoje = new Date();
   const anoAtual: number = parseInt(dataHoje.getFullYear().toString());
 
   return anoAtual - 1992;
 };
 
 export const calcularExperiencia = (anoComeco: number) => {
-  const dataHoje = new Date();
   const anoAtual: number = parseInt(dataHoje.getFullYear().toString());
 
   return anoAtual - anoComeco;

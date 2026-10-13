@@ -3,7 +3,8 @@ import { Media } from '../../../shared/media';
 import styled from 'styled-components';
 
 export const SobreMimContainer = styled.div`
-  height: 85vh;
+  min-height: 100vh;
+  max-height: fit-content;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -12,7 +13,6 @@ export const SobreMimContainer = styled.div`
 
   @media ${Media.maxWidth.sm} {
     flex-direction: column;
-    height: 70vh;
   }
 `;
 

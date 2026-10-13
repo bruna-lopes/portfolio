@@ -9,14 +9,46 @@ export const MenuContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  z-index: 1000;
 
   .menu-animacao {
-    position: fixed;
+    position: relative;
+    flex: 0 0 40px;
     border-radius: 100%;
     height: 32px;
     width: 40px;
     cursor: pointer;
-    margin: 40px;
+    margin: 0;
+  }
+
+  .menu {
+    position: fixed;
+    display: flex;
+    top: 40px;
+    left: 40px;
+    align-items: center;
+    gap: 16px;
+
+    @media ${Media.maxWidth.sm} {
+      top: 24px;
+      left: 24px;
+      gap: 12px;
+    }
+  }
+
+  .icones {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+    width: auto;
+    font-size: 1.5rem;
+
+    span {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
   }
 
   .menu-animacao span,
@@ -94,19 +126,6 @@ export const MenuContainer = styled.div`
     -o-transition-delay: 0.6s;
     transition-delay: 0.5s;
   }
-
-  .icones {
-    display: flex;
-    flex-direction: row;
-    padding: 40px;
-    width: 10%;
-    justify-content: space-between;
-    font-size: 1.5rem;
-
-    span {
-      cursor: pointer;
-    }
-  }
 `;
 
 export const OpcoesContainer = styled.div`
@@ -120,7 +139,13 @@ export const OpcoesContainer = styled.div`
     width: calc-size(fit-content, size + 80px);
     height: calc-size(fit-content, size + 0px);
     padding: 100px 0 40px 40px;
+
+    @media ${Media.maxWidth.sm} {
+      min-width: calc(25vw + 80px);
+      border-bottom-right-radius: 70%;
+    }
   }
+
   border-bottom-right-radius: 80%;
   transition-property: width, height, padding;
   transition-duration: 0.7s;
@@ -148,15 +173,14 @@ export const OpcoesContainer = styled.div`
 export const IconeImg = styled.img`
   width: 25px;
   height: 25px;
+  margin: 5px;
 
   @media ${Media.maxWidth.md} {
     width: 20px;
     height: 20px;
-    margin: 0 5px;
   }
   @media ${Media.maxWidth.ms} {
     width: 18px;
     height: 18px;
-    margin: 0 5px;
   }
 `;

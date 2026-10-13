@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { FaLinkedinIn } from 'react-icons/fa';
+import { Tooltip } from '@material-ui/core';
+import { FaDownload, FaLinkedinIn } from 'react-icons/fa';
 import Lottie from 'react-lottie';
 import LogoAnimation from '../../assets/logo.json';
 import LogoDarkMode1 from '../../assets/logoDarkMode1.json';
 import { useDarkModeContext } from '../../context/darkMode/darkModeContext';
 import { useIdiomaContext } from '../../context/idioma/idiomaContext';
+import { IdiomasEnum } from '../../models/IdiomasEnum';
 import { Constants } from '../../shared/constants';
 import { adjustComponent } from '../../shared/functions';
 import { Textos } from '../../shared/textos';
@@ -29,6 +31,17 @@ const Introducao = () => {
     },
   };
 
+  const curriculo =
+    stateIdioma.idioma === IdiomasEnum.Portugues
+      ? {
+          arquivo: '/arquivos/Bruna_Lopes_Curriculo_PT.pdf',
+          tooltip: 'Baixe o curriculo completo',
+        }
+      : {
+          arquivo: '/arquivos/Bruna_Lopes_Resume_EN.pdf',
+          tooltip: 'Download full resume',
+        };
+
   window.addEventListener('resize', () => {
     setWidthAnimation(adjustComponent(500));
     setHeightAnimation(adjustComponent(400));
@@ -38,16 +51,24 @@ const Introducao = () => {
     <S.IntroducaoContainer>
       <S.TextoContainer>
         <>
-          <p>
-            {Textos[stateIdioma.idioma].ola}
-            <strong>Bruna Lopes</strong>.
-          </p>
-          <p> {Textos[stateIdioma.idioma].dev}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: Textos[stateIdioma.idioma].introducaoTexto,
+            }}
+          />
         </>
 
-        <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
-          <FaLinkedinIn style={{ fontSize: '30' }} />
-        </S.BotaoLinkedin>
+        <S.BotoesContainer>
+          <S.BotaoLinkedin variant="contained" href={Constants.urlLinkedin}>
+            <FaLinkedinIn style={{ fontSize: '30' }} />
+          </S.BotaoLinkedin>
+
+          <Tooltip title={curriculo.tooltip} arrow placement="bottom">
+            <S.BotaoCurriculo href={curriculo.arquivo} download aria-label={curriculo.tooltip}>
+              <FaDownload style={{ fontSize: '22px' }} />
+            </S.BotaoCurriculo>
+          </Tooltip>
+        </S.BotoesContainer>
       </S.TextoContainer>
 
       <Lottie
