@@ -12,12 +12,43 @@ export const MenuContainer = styled.div`
   z-index: 1000;
 
   .menu-animacao {
-    position: fixed;
+    position: relative;
+    flex: 0 0 40px;
     border-radius: 100%;
     height: 32px;
     width: 40px;
     cursor: pointer;
-    margin: 40px;
+    margin: 0;
+  }
+
+  .menu {
+    position: fixed;
+    display: flex;
+    top: 40px;
+    left: 40px;
+    align-items: center;
+    gap: 16px;
+
+    @media ${Media.maxWidth.sm} {
+      top: 24px;
+      left: 24px;
+      gap: 12px;
+    }
+  }
+
+  .icones {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0;
+    width: auto;
+    font-size: 1.5rem;
+
+    span {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
   }
 
   .menu-animacao span,
@@ -94,21 +125,6 @@ export const MenuContainer = styled.div`
     -moz-transition-delay: 0.6s;
     -o-transition-delay: 0.6s;
     transition-delay: 0.5s;
-  }
-
-  .icones {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: flex-start;
-    padding: 40px;
-    width: 10%;
-    justify-content: space-between;
-    font-size: 1.5rem;
-
-    span {
-      cursor: pointer;
-    }
   }
 `;
 

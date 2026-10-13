@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const ConhecimentosContainer = styled.div<Props>`
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +20,7 @@ export const ConhecimentosContainer = styled.div<Props>`
   color: ${(props) => props.theme.conhecimentosContainerBackground};
 
   @media ${Media.maxWidth.sm} {
-    min-height: 80vh;
+    min-height: 100vh;
   }
 `;
 

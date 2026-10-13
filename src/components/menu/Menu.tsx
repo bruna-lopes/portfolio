@@ -79,9 +79,8 @@ export const Menu = () => {
   }, []);
 
   const rollWindow = (where: string) => {
-    const sobre = (window.innerHeight / 100) * 85;
-    const conhecimentos = (window.innerHeight / 100) * 170;
-    const contatos = (window.innerHeight / 100) * 295;
+    const sobre = (window.innerHeight / 100) * 100;
+    const conhecimentos = (window.innerHeight / 100) * 200;
 
     switch (where) {
       case 'introducao':
@@ -94,17 +93,31 @@ export const Menu = () => {
         window.scrollTo({ top: conhecimentos, behavior: 'smooth' });
         break;
       case 'contatos':
-        window.scrollTo({ top: contatos, behavior: 'smooth' });
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth',
+        });
         break;
     }
   };
 
   return (
     <S.MenuContainer>
-      <div
-        className={`menu-animacao ${aberto ? 'active' : ''}`}
-        onClick={() => setAberto(!aberto)}>
-        <span></span>
+      <div className="menu">
+        <div
+          className={`menu-animacao ${aberto ? 'active' : ''}`}
+          onClick={() => setAberto(!aberto)}>
+          <span></span>
+        </div>
+        <div className="icones">
+          <span onClick={toggleDarkTheme}>{state.darkMode ? <FiSun /> : <FiMoon />}</span>
+
+          <span onClick={toggleIdioma}>
+            <S.IconeImg
+              src={stateIdioma.idioma === IdiomasEnum.Portugues ? IconeEua : IconeBr}
+            />
+          </span>
+        </div>
       </div>
 
       <S.OpcoesContainer className={`${aberto ? 'menu-aberto' : 'menu-fechado'}`}>
@@ -123,16 +136,6 @@ export const Menu = () => {
           </span>
         </div>
       </S.OpcoesContainer>
-
-      <div className="icones">
-        <span onClick={toggleDarkTheme}>{state.darkMode ? <FiSun /> : <FiMoon />}</span>
-
-        <span onClick={toggleIdioma}>
-          <S.IconeImg
-            src={stateIdioma.idioma === IdiomasEnum.Portugues ? IconeEua : IconeBr}
-          />
-        </span>
-      </div>
     </S.MenuContainer>
   );
 };
